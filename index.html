@@ -240,30 +240,30 @@
             <i data-lucide="Sparkles" class="w-4 h-4 text-amber-500"></i>
             <span>Mẫu chuẩn ngành Giáo dục:</span>
         </div>
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5">
-            <button onclick="loadTemplate('kh_kiem_tra_qccm')" class="template-btn text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1 shadow-2xs">
-                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
-                1. KH Kiểm tra Quy chế chuyên môn (Số 337 - Chuẩn 12pt Condensed + Đầy đủ mục I, II, 1, 2 đậm)
-            </button>
-            <button onclick="loadTemplate('kh_tieng_anh')" class="template-btn text-xs bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-300 font-semibold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
-                <i data-lucide="calendar-range" class="w-3.5 h-3.5 text-blue-600"></i>
-                2. KH Chương trình bổ trợ Tiếng Anh (Kèm Bảng 35 tuần)
-            </button>
-            <button onclick="loadTemplate('kh_to_cm')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
-                <i data-lucide="file-Spreadsheet" class="w-3.5 h-3.5 text-blue-600"></i>
-                3. Kế hoạch Tổ chuyên môn (Vật lý - CN)
-            </button>
-            <button onclick="loadTemplate('qd_thanh_lap')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
+        <div class="flex items-center gap-2 overflow-x-auto pb-0.5">
+            <button onclick="loadTemplate('qd_thanh_lap')" class="template-btn text-xs bg-rose-50 hover:bg-rose-100 text-rose-900 border border-rose-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
                 <i data-lucide="stamp" class="w-3.5 h-3.5 text-rose-600"></i>
-                4. Quyết định Thành lập Ban chỉ đạo
+                1. Quyết định
             </button>
-            <button onclick="loadTemplate('to_trinh')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
-                <i data-lucide="send" class="w-3.5 h-3.5 text-emerald-600"></i>
-                5. Tờ trình / Công văn
+            <button onclick="loadTemplate('kh_kiem_tra_qccm')" class="template-btn text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
+                <i data-lucide="calendar-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                2. Kế hoạch
             </button>
-            <button onclick="loadTemplate('demo_loi')" class="template-btn text-xs bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1" title="Nạp thử một văn bản có nhiều lỗi thể thức để xem hệ thống phát hiện và tự sửa">
-                <i data-lucide="bug" class="w-3.5 h-3.5 text-rose-600"></i>
-                Thử nghiệm bắt lỗi & Tự sửa
+            <button onclick="loadTemplate('bao_cao')" class="template-btn text-xs bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
+                <i data-lucide="file-bar-chart-2" class="w-3.5 h-3.5 text-blue-600"></i>
+                3. Báo cáo
+            </button>
+            <button onclick="loadTemplate('to_trinh')" class="template-btn text-xs bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
+                <i data-lucide="send" class="w-3.5 h-3.5 text-amber-600"></i>
+                4. Tờ trình
+            </button>
+            <button onclick="loadTemplate('thong_bao')" class="template-btn text-xs bg-purple-50 hover:bg-purple-100 text-purple-900 border border-purple-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
+                <i data-lucide="megaphone" class="w-3.5 h-3.5 text-purple-600"></i>
+                5. Thông báo
+            </button>
+            <button onclick="loadTemplate('cong_van')" class="template-btn text-xs bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-semibold px-3 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-slate-600"></i>
+                6. Công văn
             </button>
         </div>
     </div>
@@ -392,11 +392,12 @@
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">Loại hình văn bản</label>
                             <select id="docCategory" onchange="handleCategoryChange()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none font-medium">
-                                <option value="kehoach">Kế hoạch (KH)</option>
-                                <option value="quyetdinh">Quyết định (QĐ)</option>
-                                <option value="totrinh">Tờ trình (TTr)</option>
-                                <option value="thongbao">Thông báo (TB)</option>
-                                <option value="congvan">Công văn hành chính</option>
+                                <option value="quyetdinh">1. Quyết định (QĐ)</option>
+                                <option value="kehoach">2. Kế hoạch (KH)</option>
+                                <option value="baocao">3. Báo cáo (BC)</option>
+                                <option value="totrinh">4. Tờ trình (TTr)</option>
+                                <option value="thongbao">5. Thông báo (TB)</option>
+                                <option value="congvan">6. Công văn hành chính</option>
                             </select>
                         </div>
                         <div>
@@ -1343,6 +1344,111 @@ Tổ Vật lý - Công nghệ kính trình Ban Giám hiệu xem xét, quyết đ
                 approvalTitle: ''
             },
 
+            bao_cao: {
+                docCategory: 'baocao',
+                governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
+                issuingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
+                docSymbol: 'Số: 42/BC-THCS&THPT',
+                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
+                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
+                docLocation: 'Hòa Thuận',
+                docDay: '15',
+                docMonth: '10',
+                docYear: '2026',
+                docTypeTitle: 'BÁO CÁO',
+                docSubject: 'Kết quả thực hiện nhiệm vụ chuyên môn và công tác chuyển đổi số trong dạy học tháng 10 năm học 2026 - 2027',
+                decisionAuthority: '',
+                docBases: `Căn cứ Kế hoạch thực hiện nhiệm vụ năm học 2026 - 2027 của Trường THCS&THPT Hòa Thuận;
+Căn cứ Công văn hướng dẫn chế độ báo cáo định kỳ của Sở Giáo dục và Đào tạo An Giang.`,
+                docBody: `Trường THCS&THPT Hòa Thuận báo cáo kết quả thực hiện nhiệm vụ chuyên môn và công tác chuyển đổi số tháng 10 năm học 2026 - 2027 như sau:
+I. ĐẶC ĐIỂM TÌNH HÌNH
+1. Thuận lợi
+Được sự quan tâm chỉ đạo sâu sát của Sở Giáo dục và Đào tạo An Giang; tập thể cán bộ quản lý, giáo viên và nhân viên nhà trường đoàn kết, nhiệt tình, có trách nhiệm cao trong công tác giảng dạy.
+2. Khó khăn
+Một số học sinh ở địa bàn xa còn hạn chế về thiết bị học tập trực tuyến tại nhà.
+II. KẾT QUẢ THỰC HIỆN
+1. Công tác giảng dạy và thực hiện Chương trình GDPT 2018
+a) 100% các tổ chuyên môn xây dựng và thực hiện đúng phân phối chương trình, kế hoạch giáo dục của nhà trường theo tuần, tháng.
+b) Tổ chức thành công 04 chuyên đề sinh hoạt chuyên môn theo hướng nghiên cứu bài học.
+2. Công tác ứng dụng CNTT và chuyển đổi số
+a) 100% giáo viên thực hiện ký số Kế hoạch bài dạy và cập nhật điểm số, nhận xét học sinh đúng tiến độ trên hệ thống vnEdu.
+b) Triển khai hiệu quả Chương trình bổ trợ tiếng Anh và hệ thống học liệu số cho học sinh khối THCS và THPT.
+III. PHƯƠNG HƯỚNG, NHIỆM VỤ THÁNG TIẾP THEO
+1. Tiếp tục tăng cường kiểm tra việc thực hiện Quy chế chuyên môn của giáo viên đợt 2.
+2. Đẩy mạnh công tác bồi dưỡng học sinh giỏi và hướng dẫn học sinh nghiên cứu Khoa học Kỹ thuật cấp trường.
+Trên đây là Báo cáo kết quả thực hiện nhiệm vụ chuyên môn tháng 10 năm học 2026 - 2027 của Trường THCS&THPT Hòa Thuận./.`,
+                docRecipients: `- Sở GD&ĐT An Giang (để báo cáo);
+- Ban Giám hiệu;
+- Các Tổ chuyên môn;
+- Lưu: VT.`,
+                signAuthPrefix: '',
+                signPosition: 'HIỆU TRƯỞNG',
+                signerName: 'Trần Quốc Tuấn',
+                approvalTitle: ''
+            },
+
+            thong_bao: {
+                docCategory: 'thongbao',
+                governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
+                issuingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
+                docSymbol: 'Số: 56/TB-THCS&THPT',
+                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
+                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
+                docLocation: 'Hòa Thuận',
+                docDay: '15',
+                docMonth: '10',
+                docYear: '2026',
+                docTypeTitle: 'THÔNG BÁO',
+                docSubject: 'Về lịch kiểm tra hồ sơ chuyên môn định kỳ Học kỳ I năm học 2026 - 2027',
+                decisionAuthority: '',
+                docBases: `Căn cứ Kế hoạch số 337/KH-THCS&THPT ngày 15 tháng 10 năm 2026 của Trường THCS&THPT Hòa Thuận về việc kiểm tra thực hiện Quy chế chuyên môn của giáo viên học kỳ I năm học 2026 - 2027.`,
+                docBody: `Trường THCS&THPT Hòa Thuận thông báo đến các tổ chuyên môn và toàn thể giáo viên về lịch kiểm tra hồ sơ chuyên môn định kỳ Học kỳ I năm học 2026 - 2027 như sau:
+I. THỜI GIAN VÀ ĐỐI TƯỢNG KIỂM TRA
+1. Thời gian kiểm tra đợt 1
+Từ ngày 19/10/2026 đến hết ngày 23/10/2026.
+2. Đối tượng kiểm tra
+Toàn thể Tổ trưởng chuyên môn, giáo viên bộ môn và giáo viên chủ nhiệm các khối lớp.
+II. NỘI DUNG HỒ SƠ KIỂM TRA
+1. Kế hoạch bài dạy của giáo viên và Sổ ghi chép sinh hoạt chuyên môn của các tổ trên hệ thống vnEdu.
+2. Tiến độ cập nhật điểm kiểm tra thường xuyên và cập nhật chuyên cần học sinh trên hệ thống vnEdu.
+III. TỔ CHỨC THỰC HIỆN
+Đề nghị các Tổ trưởng chuyên môn đôn đốc giáo viên trong tổ hoàn thiện đầy đủ hồ sơ trước thời gian kiểm tra nêu trên./.`,
+                docRecipients: `- Ban Giám hiệu (để chỉ đạo);
+- Các Tổ chuyên môn, toàn thể GV (để thực hiện);
+- Lưu: VT.`,
+                signAuthPrefix: 'KT. HIỆU TRƯỞNG',
+                signPosition: 'PHÓ HIỆU TRƯỞNG',
+                signerName: 'Nguyễn Chí Tâm',
+                approvalTitle: ''
+            },
+
+            cong_van: {
+                docCategory: 'congvan',
+                governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
+                issuingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
+                docSymbol: 'Số: 85/THCS&THPT-CM',
+                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
+                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
+                docLocation: 'Hòa Thuận',
+                docDay: '15',
+                docMonth: '10',
+                docYear: '2026',
+                docTypeTitle: '',
+                docSubject: 'V/v cử giáo viên và học sinh tham dự Hội thảo chuyên đề giáo dục STEM cấp tỉnh năm học 2026 - 2027',
+                decisionAuthority: '',
+                docBases: `Kính gửi: Sở Giáo dục và Đào tạo tỉnh An Giang (Phòng Giáo dục Trung học).`,
+                docBody: `Thực hiện Công văn của Sở Giáo dục và Đào tạo tỉnh An Giang về việc triệu tập cán bộ quản lý, giáo viên tham dự Hội thảo chuyên đề triển khai giáo dục STEM cấp trung học năm học 2026 - 2027;
+Trường THCS&THPT Hòa Thuận trân trọng lập danh sách cử 01 cán bộ quản lý và 03 giáo viên thuộc Tổ Vật lý - Công nghệ, Tổ Toán - Tin tham dự đầy đủ theo đúng thời gian và địa điểm quy định.
+Nhà trường cam kết bố trí dạy thay đảm bảo kế hoạch giáo dục chính khóa và tạo điều kiện thuận lợi để giáo viên hoàn thành tốt nhiệm vụ tập huấn./.`,
+                docRecipients: `- Như trên;
+- Ban Giám hiệu;
+- Lưu: VT.`,
+                signAuthPrefix: '',
+                signPosition: 'HIỆU TRƯỞNG',
+                signerName: 'Trần Quốc Tuấn',
+                approvalTitle: ''
+            },
+
             // Mẫu cố tình chứa nhiều lỗi thể thức để người dùng thử nghiệm nút Tự động sửa lỗi
             demo_loi: {
                 docCategory: 'quyetdinh',
@@ -2133,6 +2239,7 @@ Nguyễn Văn Minh`
 
                     const upperType = cleanLine.toUpperCase();
                     if (upperType.includes('QUYẾT ĐỊNH')) parsed.docCategory = 'quyetdinh';
+                    else if (upperType.includes('BÁO CÁO')) parsed.docCategory = 'baocao';
                     else if (upperType.includes('TỜ TRÌNH')) parsed.docCategory = 'totrinh';
                     else if (upperType.includes('THÔNG BÁO')) parsed.docCategory = 'thongbao';
                     else parsed.docCategory = 'kehoach';
@@ -2561,6 +2668,7 @@ Nguyễn Văn Minh`
                 if (updateDefaults) {
                     const mapTitle = {
                         kehoach: 'KẾ HOẠCH',
+                        baocao: 'BÁO CÁO',
                         totrinh: 'TỜ TRÌNH',
                         thongbao: 'THÔNG BÁO'
                     };
@@ -2907,7 +3015,7 @@ Nguyễn Văn Minh`
             });
 
             // 3. Kiểm tra Số và Ký hiệu văn bản (khớp với loại văn bản)
-            const expectedAbbrMap = { kehoach: 'KH', quyetdinh: 'QĐ', totrinh: 'TTr', thongbao: 'TB', congvan: '' };
+            const expectedAbbrMap = { kehoach: 'KH', quyetdinh: 'QĐ', baocao: 'BC', totrinh: 'TTr', thongbao: 'TB', congvan: '' };
             const expectedAbbr = expectedAbbrMap[cat] || '';
             const hasSoPrefix = /^Số:\s*\d+\//i.test(docSymbol);
             const isAbbrMatched = !expectedAbbr || new RegExp(`\\/${expectedAbbr}-`, 'i').test(docSymbol);
@@ -3078,7 +3186,7 @@ Nguyễn Văn Minh`
                 const slashParts = sym.split('/');
                 if (slashParts.length === 2) {
                     let rightPart = slashParts[1].toUpperCase().replace(/^TTR-/, 'TTr-');
-                    const abbrMap = { kehoach: 'KH', quyetdinh: 'QĐ', totrinh: 'TTr', thongbao: 'TB' };
+                    const abbrMap = { kehoach: 'KH', quyetdinh: 'QĐ', baocao: 'BC', totrinh: 'TTr', thongbao: 'TB' };
                     const targetAbbr = abbrMap[cat];
                     if (targetAbbr) {
                         rightPart = rightPart.replace(/^(KH|QĐ|QD|TTR|TB|BC)-/i, `${targetAbbr}-`);
