@@ -201,7 +201,12 @@
 
             <!-- Cụm nút công cụ nhanh -->
             <div class="flex items-center gap-2 flex-wrap">
-                <button onclick="runInteractiveDemoTest()" class="flex items-center gap-1.5 text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white px-3 py-2 rounded-lg border border-rose-300/50 transition shadow-md animate-pulse" title="Chạy tự động quy trình kiểm thử 4 bước: Nạp file lỗi -> Bóc tách -> Đánh số mục -> Chuẩn hóa NĐ 30/2020">
+                <button onclick="clearAllFields(true)" class="flex items-center gap-1.5 text-xs font-bold bg-slate-700 hover:bg-slate-600 text-white px-3 py-2 rounded-lg border border-slate-400/50 transition shadow-sm" title="Xóa toàn bộ nội dung để về trang A4 trắng">
+                    <i data-lucide="eraser" class="w-4 h-4 text-amber-300"></i>
+                    <span>Xóa Trắng Trang</span>
+                </button>
+
+                <button onclick="runInteractiveDemoTest()" class="flex items-center gap-1.5 text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white px-3 py-2 rounded-lg border border-rose-300/50 transition shadow-md" title="Chạy tự động quy trình kiểm thử 4 bước: Nạp file lỗi -> Bóc tách -> Đánh số mục -> Chuẩn hóa NĐ 30/2020">
                     <i data-lucide="play-circle" class="w-4 h-4 text-amber-200"></i>
                     <span>Test Chạy Thử Tự Động</span>
                 </button>
@@ -419,11 +424,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-600 mb-1">Quốc hiệu (Chuẩn in hoa)</label>
-                            <input type="text" id="nationalName" oninput="syncDocument()" value="CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM" class="w-full text-[11px] border border-slate-300 rounded-lg px-2 py-1.5 bg-white">
+                            <input type="text" id="nationalName" oninput="syncDocument()" value="" placeholder="CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM" class="w-full text-[11px] border border-slate-300 rounded-lg px-2 py-1.5 bg-white">
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tiêu ngữ (Chuẩn chữ hoa/thường)</label>
-                            <input type="text" id="nationalMotto" oninput="syncDocument()" value="Độc lập - Tự do - Hạnh phúc" class="w-full text-[11px] border border-slate-300 rounded-lg px-2 py-1.5 bg-white">
+                            <input type="text" id="nationalMotto" oninput="syncDocument()" value="" placeholder="Độc lập - Tự do - Hạnh phúc" class="w-full text-[11px] border border-slate-300 rounded-lg px-2 py-1.5 bg-white">
                         </div>
                     </div>
 
@@ -502,7 +507,7 @@
                     <div id="decisionExtraFields" class="space-y-3 hidden">
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">Thẩm quyền ban hành Quyết định (In hoa, đậm)</label>
-                            <input type="text" id="decisionAuthority" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 font-semibold" value="HIỆU TRƯỞNG TRƯỜNG THCS&THPT HÒA THUẬN">
+                            <input type="text" id="decisionAuthority" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 font-semibold" value="" placeholder="HIỆU TRƯỞNG TRƯỜNG THCS&THPT HÒA THUẬN">
                         </div>
                     </div>
 
@@ -635,15 +640,13 @@
                         <tr>
                             <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (Ô số 2) - Cỡ chữ chuẩn 12pt + Spacing Condensed -->
                             <td class="guide-box-highlight" nowrap="nowrap" style="width: 78mm; vertical-align: top; text-align: center; padding: 0 2pt 0 0; white-space: nowrap; overflow: visible;">
-                                <div id="preview-governing" style="font-size: 12pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.4pt;">
-                                    SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG
-                                </div>
+                                <div id="preview-governing" style="font-size: 12pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.4pt;"></div>
                                 <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap; letter-spacing: -0.4pt;">
-                                    <span id="preview-issuing" style="display: inline-block; white-space: nowrap;">TRƯỜNG THCS&THPT HÒA THUẬN</span>
+                                    <span id="preview-issuing" style="display: inline-block; white-space: nowrap;"></span>
                                     <span class="doc-element-badge">12pt Đậm (Condensed)</span>
                                 </div>
                                 <!-- Đường kẻ ngang định dạng Shape dưới tên cơ quan ban hành (1/3 đến 1/2 độ dài dòng chữ) -->
-                                <div class="doc-shape-line-wrapper" title="Đối tượng Word VML Shape Line (<v:line>) dưới tên Trường">
+                                <div id="shape-wrapper-issuing" class="doc-shape-line-wrapper" style="display: none;" title="Đối tượng Word VML Shape Line (<v:line>) dưới tên Trường">
                                     <svg id="shape-svg-issuing" class="doc-shape-svg" width="83" height="6" viewBox="0 0 83 6">
                                         <line class="doc-shape-line-stroke" x1="0" y1="3" x2="83" y2="3" stroke="#000000" stroke-width="1.2" stroke-linecap="square" />
                                         <circle class="doc-shape-handle no-print" cx="0" cy="3" r="2.6" />
@@ -654,7 +657,7 @@
                                 
                                 <!-- Số và ký hiệu văn bản (Ô số 3) -->
                                 <div style="font-size: 13pt; font-weight: normal; margin-top: 4pt; white-space: nowrap;">
-                                    <span id="preview-symbol">Số: 2371/KH-THCS&THPT</span>
+                                    <span id="preview-symbol"></span>
                                     <span class="doc-element-badge">13pt Thường</span>
                                 </div>
                             </td>
@@ -662,15 +665,15 @@
                             <!-- Cột phải: Quốc hiệu & Tiêu ngữ (Ô số 1) - Ép chuẩn 1 dòng đơn -->
                             <td class="guide-box-highlight" nowrap="nowrap" style="width: 87mm; vertical-align: top; text-align: center; padding: 0 0 0 2pt; white-space: nowrap; overflow: visible;">
                                 <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.15pt;">
-                                    <span id="preview-national">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+                                    <span id="preview-national"></span>
                                     <span class="doc-element-badge">12pt Hoa Đậm</span>
                                 </div>
                                 <div style="font-size: 13pt; font-weight: bold; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap;">
-                                    <span id="preview-motto" style="display: inline-block; white-space: nowrap;">Độc lập - Tự do - Hạnh phúc</span>
+                                    <span id="preview-motto" style="display: inline-block; white-space: nowrap;"></span>
                                     <span class="doc-element-badge">13pt Đậm</span>
                                 </div>
                                 <!-- Đường kẻ ngang định dạng Shape dưới Tiêu ngữ (Độ dài bằng đúng 100% độ dài dòng chữ) -->
-                                <div class="doc-shape-line-wrapper" title="Đối tượng Word VML Shape Line (<v:line>) dưới Tiêu ngữ">
+                                <div id="shape-wrapper-motto" class="doc-shape-line-wrapper" style="display: none;" title="Đối tượng Word VML Shape Line (<v:line>) dưới Tiêu ngữ">
                                     <svg id="shape-svg-motto" class="doc-shape-svg" width="181" height="6" viewBox="0 0 181 6">
                                         <line class="doc-shape-line-stroke" x1="0" y1="3" x2="181" y2="3" stroke="#000000" stroke-width="1.2" stroke-linecap="square" />
                                         <circle class="doc-shape-handle no-print" cx="0" cy="3" r="2.6" />
@@ -681,7 +684,7 @@
                                 
                                 <!-- Địa danh và thời gian ban hành (Ô số 4) -->
                                 <div style="font-size: 13pt; font-style: italic; margin-top: 6pt; white-space: nowrap;">
-                                    <span id="preview-datetime">Hòa Thuận, ngày 05 tháng 02 năm 2026</span>
+                                    <span id="preview-datetime"></span>
                                     <span class="doc-element-badge">13pt Nghiêng</span>
                                 </div>
                             </td>
@@ -691,15 +694,15 @@
                     <!-- TÊN LOẠI VĂN BẢN VÀ TRÍCH YẾU NỘI DUNG (Ô số 5a) -->
                     <div id="preview-title-block" class="guide-box-highlight" style="text-align: center; margin-top: 14pt; margin-bottom: 12pt;">
                         <div id="preview-doctype-line" style="font-size: 14pt; font-weight: bold; text-transform: uppercase; line-height: 1.3;">
-                            <span id="preview-doctype">KẾ HOẠCH</span>
+                            <span id="preview-doctype"></span>
                             <span class="doc-element-badge">14pt Hoa Đậm</span>
                         </div>
                         <div style="font-size: 14pt; font-weight: bold; line-height: 1.3; margin-top: 2pt;">
-                            <span id="preview-subject">Thực hiện nhiệm vụ chuyên môn tháng 02 năm học 2025 - 2026</span>
+                            <span id="preview-subject"></span>
                             <span class="doc-element-badge">14pt Đậm</span>
                         </div>
                         <!-- Đường kẻ ngang định dạng Shape dưới trích yếu (1/3 đến 1/2 độ dài) -->
-                        <div id="preview-subject-line" class="doc-shape-line-wrapper" style="margin-top: 4pt;" title="Đối tượng Shape Line dưới Trích yếu">
+                        <div id="preview-subject-line" class="doc-shape-line-wrapper" style="margin-top: 4pt; display: none;" title="Đối tượng Shape Line dưới Trích yếu">
                             <svg id="shape-svg-subject" class="doc-shape-svg" width="140" height="6" viewBox="0 0 140 6">
                                 <line class="doc-shape-line-stroke" x1="0" y1="3" x2="140" y2="3" stroke="#000000" stroke-width="1.15" stroke-linecap="square" />
                                 <circle class="doc-shape-handle no-print" cx="0" cy="3" r="2.6" />
@@ -712,7 +715,7 @@
                     <!-- THẨM QUYỀN BAN HÀNH QUYẾT ĐỊNH (Chỉ hiện khi loại văn bản là Quyết định) -->
                     <div id="preview-decision-auth-block" style="display: none; text-align: center; margin-top: 12pt; margin-bottom: 10pt;">
                         <div style="font-size: 14pt; font-weight: bold; text-transform: uppercase;">
-                            <span id="preview-decision-authority">HIỆU TRƯỞNG TRƯỜNG THCS&THPT HÒA THUẬN</span>
+                            <span id="preview-decision-authority"></span>
                             <span class="doc-element-badge">13-14pt Hoa Đậm</span>
                         </div>
                     </div>
@@ -737,7 +740,7 @@
                         <tr>
                             <!-- Cột trái: Nơi nhận (Cỡ 11pt cho chữ Nơi nhận, 11pt cho danh sách) hoặc Duyệt của BGH -->
                             <td class="guide-box-highlight" style="width: 50%; vertical-align: top; padding-right: 10pt;">
-                                <div id="preview-recipients-wrapper">
+                                <div id="preview-recipients-wrapper" style="display: none;">
                                     <div style="font-size: 12pt; font-weight: bold; font-style: italic; margin-bottom: 2pt;">
                                         Nơi nhận: <span class="doc-element-badge">12pt Đậm Nghiêng</span>
                                     </div>
@@ -748,9 +751,7 @@
 
                                 <!-- Khối Duyệt của Ban Giám Hiệu (nếu có đối với Kế hoạch Tổ chuyên môn) -->
                                 <div id="preview-approval-wrapper" style="display: none; text-align: center; margin-top: 12pt;">
-                                    <div id="preview-approval-title" style="font-size: 13pt; font-weight: bold; text-transform: uppercase;">
-                                        DUYỆT CỦA BAN GIÁM HIỆU
-                                    </div>
+                                    <div id="preview-approval-title" style="font-size: 13pt; font-weight: bold; text-transform: uppercase;"></div>
                                     <div style="height: 60pt;"></div>
                                 </div>
                             </td>
@@ -759,17 +760,17 @@
                             <td class="guide-box-highlight" style="width: 50%; vertical-align: top; text-align: center;">
                                 <div id="preview-sign-prefix" style="font-size: 13pt; font-weight: bold; text-transform: uppercase; line-height: 1.25;"></div>
                                 <div style="font-size: 13pt; font-weight: bold; text-transform: uppercase; line-height: 1.25;">
-                                    <span id="preview-sign-position">HIỆU TRƯỞNG</span>
+                                    <span id="preview-sign-position"></span>
                                     <span class="doc-element-badge">13-14pt Hoa Đậm</span>
                                 </div>
                                 
                                 <!-- Khoảng trống ký tên & đóng dấu -->
-                                <div style="height: 65pt; display: flex; align-items: center; justify-content: center;">
+                                <div id="preview-sign-space" style="height: 65pt; display: none; align-items: center; justify-content: center;">
                                     <span class="no-print text-[11px] font-sans text-slate-300 italic select-none">(Ký tên, đóng dấu)</span>
                                 </div>
 
                                 <div style="font-size: 14pt; font-weight: bold;">
-                                    <span id="preview-signer-name">Nguyễn Văn A</span>
+                                    <span id="preview-signer-name"></span>
                                     <span class="doc-element-badge">13-14pt Đậm</span>
                                 </div>
                             </td>
@@ -1563,9 +1564,36 @@ Nguyễn Văn Minh`
         // =========================================================================
         window.onload = function() {
             lucide.createIcons();
-            loadTemplate('kh_kiem_tra_qccm');
+            clearAllFields(false);
             setupDragAndDropZone();
         };
+
+        // Hàm xóa trắng toàn bộ các ô nhập liệu và tờ giấy A4
+        function clearAllFields(showNotice = false) {
+            const emptyFields = [
+                'governingBody', 'issuingBody', 'docSymbol',
+                'nationalName', 'nationalMotto', 'docLocation', 'docDay',
+                'docMonth', 'docYear', 'docTypeTitle', 'docSubject',
+                'decisionAuthority', 'docBases', 'docBody', 'docRecipients',
+                'signAuthPrefix', 'signPosition', 'signerName', 'approvalTitle'
+            ];
+            emptyFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            const catEl = document.getElementById('docCategory');
+            if (catEl) catEl.value = 'kehoach';
+            const orgPreset = document.getElementById('quick-org-preset');
+            if (orgPreset) orgPreset.value = '';
+            const repBox = document.getElementById('recognition-report');
+            if (repBox) repBox.classList.add('hidden');
+
+            handleCategoryChange(false);
+            syncDocument();
+            if (showNotice) {
+                showToast('Đã xóa trắng toàn bộ nội dung văn bản!');
+            }
+        }
 
         function setupDragAndDropZone() {
             const dropzone = document.getElementById('upload-dropzone');
@@ -2130,19 +2158,19 @@ Nguyễn Văn Minh`
                 nguoiKy: false
             };
 
-            // Kết quả bóc tách mặc định
+            // Kết quả bóc tách mặc định (để trống nếu trong file không có)
             const parsed = {
                 docCategory: 'kehoach',
                 governingBody: '',
                 issuingBody: '',
                 docSymbol: '',
-                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
-                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
-                docLocation: 'Hòa Thuận',
-                docDay: '05',
-                docMonth: '02',
-                docYear: '2026',
-                docTypeTitle: 'KẾ HOẠCH',
+                nationalName: '',
+                nationalMotto: '',
+                docLocation: '',
+                docDay: '',
+                docMonth: '',
+                docYear: '',
+                docTypeTitle: '',
                 docSubject: '',
                 decisionAuthority: '',
                 docBases: '',
@@ -2224,9 +2252,9 @@ Nguyễn Văn Minh`
                 }
             });
 
-            // 3. NHẬN DIỆN LOẠI VĂN BẢN (KẾ HOẠCH, QUYẾT ĐỊNH, TỜ TRÌNH, THÔNG BÁO, CÔNG VĂN) & VỊ TRÍ DÒNG TIÊU ĐỀ
+            // 3. NHẬN DIỆN LOẠI VĂN BẢN (KẾ HOẠCH, QUYẾT ĐỊNH, TỜ TRÌNH, THÔNG BÁO, CÔNG VĂN, BIÊN BẢN) & VỊ TRÍ DÒNG TIÊU ĐỀ
             let docTypeLineIdx = -1;
-            const docTypeRegex = /^(KẾ\s+HOẠCH|QUYẾT\s+ĐỊNH|TỜ\s+TRÌNH|THÔNG\s+BÁO|BÁO\s+CÁO|CÔNG\s+VĂN|CHƯƠNG\s+TRÌNH|HƯỚNG\s+DẪN)$/i;
+            const docTypeRegex = /^(KẾ\s+HOẠCH|QUYẾT\s+ĐỊNH|TỜ\s+TRÌNH|THÔNG\s+BÁO|BÁO\s+CÁO|CÔNG\s+VĂN|CHƯƠNG\s+TRÌNH|HƯỚNG\s+DẪN|BIÊN\s+BẢN.*)$/i;
 
             for (let i = 0; i < Math.min(rawLines.length, 20); i++) {
                 if (usedLineIndices.has(i)) continue;
@@ -2288,7 +2316,6 @@ Nguyễn Văn Minh`
                 recognizedStatus.coQuan = true;
             } else if (headerCandidateLines.length === 1) {
                 if (!parsed.issuingBody) parsed.issuingBody = headerCandidateLines[0].text;
-                if (!parsed.governingBody) parsed.governingBody = 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG';
                 recognizedStatus.coQuan = true;
             }
 
@@ -2480,19 +2507,7 @@ Nguyễn Văn Minh`
             recognizedStatus.canCu = basesLines.length > 0;
             recognizedStatus.noiDung = structuredBodyLines.length > 0;
 
-            // Đảm bảo các trường không bị rỗng hoàn toàn nếu file tải lên thiếu một số mục phụ
-            if (!parsed.governingBody) parsed.governingBody = 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG';
-            if (!parsed.issuingBody) parsed.issuingBody = 'TRƯỜNG THCS&THPT HÒA THUẬN';
-            if (!parsed.docSymbol) parsed.docSymbol = parsed.docCategory === 'quyetdinh' ? 'Số: 01/QĐ-THCS&THPT' : 'Số: 01/KH-THCS&THPT';
-            if (!parsed.docSubject) parsed.docSubject = 'Về việc thực hiện nhiệm vụ năm học 2026 - 2027';
-            if (parsed.docCategory === 'quyetdinh' && !parsed.decisionAuthority) {
-                parsed.decisionAuthority = `HIỆU TRƯỞNG ${parsed.issuingBody.toUpperCase()}`;
-            }
-            if (!parsed.docRecipients) {
-                parsed.docRecipients = `- Ban Giám hiệu;\n- Các Tổ chuyên môn;\n- Lưu: VT.`;
-            }
-            if (!parsed.signPosition) parsed.signPosition = 'HIỆU TRƯỞNG';
-            if (!parsed.signerName) parsed.signerName = 'Trần Quốc Tuấn';
+            // Giữ nguyên đúng nội dung thực tế bóc tách được từ file tải lên (không tự ý chèn nội dung mặc định vào các mục file không có)
 
             // Đổ toàn bộ dữ liệu đã nhận diện vào các mục soạn thảo một cách an toàn
             const fieldMap = {
@@ -2565,7 +2580,7 @@ Nguyễn Văn Minh`
                 if (ok) {
                     return `<span class="text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300 px-1.5 py-0.5 rounded flex items-center gap-1">✓ ${item.label}</span>`;
                 } else {
-                    return `<span class="text-[10px] font-medium bg-amber-50 text-amber-800 border border-amber-200 px-1.5 py-0.5 rounded flex items-center gap-1" title="Mục này không có trong file gốc, đã điền gợi ý mặc định">• ${item.label} (Mặc định)</span>`;
+                    return `<span class="text-[10px] font-medium bg-slate-100 text-slate-500 border border-slate-200 px-1.5 py-0.5 rounded flex items-center gap-1" title="Mục này không có trong file gốc nên được để trống">• ${item.label} (Trống)</span>`;
                 }
             }).join('');
 
@@ -2751,9 +2766,20 @@ Nguyễn Văn Minh`
             const prevMotto = document.getElementById('preview-motto');
             if (prevMotto) prevMotto.textContent = nationalMotto;
 
+            // Chỉ hiện đường kẻ Shape dưới tên Trường và Tiêu ngữ khi có nội dung chữ
+            const shapeWrapIss = document.getElementById('shape-wrapper-issuing');
+            if (shapeWrapIss) shapeWrapIss.style.display = issuingBody ? 'flex' : 'none';
+            const shapeWrapMotto = document.getElementById('shape-wrapper-motto');
+            if (shapeWrapMotto) shapeWrapMotto.style.display = nationalMotto ? 'flex' : 'none';
+
             const prevDate = document.getElementById('preview-datetime');
             if (prevDate) {
-                prevDate.textContent = `${docLocation}, ngày ${docDay} tháng ${docMonth} năm ${docYear}`;
+                if (docLocation || docDay || docMonth || docYear) {
+                    const locPart = docLocation ? `${docLocation}, ` : '';
+                    prevDate.textContent = `${locPart}ngày ${docDay || '...'} tháng ${docMonth || '...'} năm ${docYear || '...'}`;
+                } else {
+                    prevDate.textContent = '';
+                }
             }
 
             // Cập nhật độ dài các đường kẻ SVG Shape trên tờ giấy A4
@@ -2771,8 +2797,8 @@ Nguyễn Văn Minh`
                 if (doctypeLine) doctypeLine.style.display = 'none';
                 if (prevSubjectLine) prevSubjectLine.style.display = 'none';
             } else {
-                if (doctypeLine) doctypeLine.style.display = 'block';
-                if (prevSubjectLine) prevSubjectLine.style.display = 'flex';
+                if (doctypeLine) doctypeLine.style.display = docTypeTitle ? 'block' : 'none';
+                if (prevSubjectLine) prevSubjectLine.style.display = (docTypeTitle || docSubject) ? 'flex' : 'none';
                 if (prevDoctype) {
                     prevDoctype.textContent = docTypeTitle;
                     prevDoctype.style.textTransform = 'none';
@@ -2784,8 +2810,8 @@ Nguyễn Văn Minh`
             const decAuthBlock = document.getElementById('preview-decision-auth-block');
             const decWordBlock = document.getElementById('preview-quyetdinh-word');
             const prevDecAuth = document.getElementById('preview-decision-authority');
-            if (cat === 'quyetdinh') {
-                if (decAuthBlock) decAuthBlock.style.display = 'block';
+            if (cat === 'quyetdinh' && (decisionAuthority || docBody)) {
+                if (decAuthBlock) decAuthBlock.style.display = decisionAuthority ? 'block' : 'none';
                 if (decWordBlock) decWordBlock.style.display = 'block';
                 if (prevDecAuth) {
                     prevDecAuth.textContent = decisionAuthority;
@@ -2816,9 +2842,13 @@ Nguyễn Văn Minh`
             }
 
             // 7. Render Nơi nhận & Chữ ký cuối văn bản trên A4
+            const recWrapper = document.getElementById('preview-recipients-wrapper');
             const recContainer = document.getElementById('preview-recipients-list');
+            const recLines = docRecipients.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            if (recWrapper) {
+                recWrapper.style.display = recLines.length > 0 ? 'block' : 'none';
+            }
             if (recContainer) {
-                const recLines = docRecipients.split('\n').map(l => l.trim()).filter(l => l.length > 0);
                 recContainer.innerHTML = recLines.map(l => `<div>${escapeHtml(l)}</div>`).join('');
             }
 
@@ -2840,6 +2870,10 @@ Nguyễn Văn Minh`
             if (prevPos) {
                 prevPos.textContent = signPosition;
                 prevPos.style.textTransform = 'none';
+            }
+            const signSpace = document.getElementById('preview-sign-space');
+            if (signSpace) {
+                signSpace.style.display = (signPosition || signerName) ? 'flex' : 'none';
             }
             const prevSigner = document.getElementById('preview-signer-name');
             if (prevSigner) prevSigner.textContent = signerName;
@@ -2985,10 +3019,40 @@ Nguyễn Văn Minh`
             const docDay = (document.getElementById('docDay')?.value || '').trim();
             const docMonth = (document.getElementById('docMonth')?.value || '').trim();
             const docTypeTitle = (document.getElementById('docTypeTitle')?.value || '').trim();
+            const docSubject = (document.getElementById('docSubject')?.value || '').trim();
             const docBases = (document.getElementById('docBases')?.value || '').trim();
             const docBody = (document.getElementById('docBody')?.value || '').trim();
             const docRecipients = (document.getElementById('docRecipients')?.value || '').trim();
             const signPosition = (document.getElementById('signPosition')?.value || '').trim();
+
+            // Nếu trang đang hoàn toàn trống, hiển thị trạng thái Chờ nhập/tải văn bản
+            const isDocumentBlank = !governingBody && !issuingBody && !docSymbol && !docSubject && !docBases && !docBody && !docRecipients && !signPosition;
+            if (isDocumentBlank) {
+                const scoreBadge = document.getElementById('score-badge');
+                const scoreValue = document.getElementById('score-value');
+                const statusPill = document.getElementById('status-pill');
+                const summaryText = document.getElementById('validator-summary');
+                const btnAutofix = document.getElementById('btn-autofix-all');
+                const errCountBadge = document.getElementById('error-count-badge');
+                const checklistContainer = document.getElementById('validation-checklist');
+
+                if (scoreValue) scoreValue.textContent = '--';
+                if (errCountBadge) errCountBadge.textContent = '0';
+                if (scoreBadge) scoreBadge.className = 'w-12 h-12 rounded-xl bg-slate-400 text-white flex flex-col items-center justify-center font-bold shadow-sm';
+                if (statusPill) {
+                    statusPill.textContent = 'Trang trống';
+                    statusPill.className = 'text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700';
+                }
+                if (summaryText) summaryText.textContent = 'Tải file lên, chọn mẫu hoặc nhập nội dung để bắt đầu kiểm tra.';
+                if (btnAutofix) {
+                    btnAutofix.classList.add('hidden');
+                    btnAutofix.classList.remove('flex');
+                }
+                if (checklistContainer) {
+                    checklistContainer.innerHTML = `<div class="p-6 text-center text-xs text-slate-500 bg-white rounded-xl border border-dashed border-slate-300">Chưa có nội dung văn bản. Hãy tải file văn bản lên, chọn 1 mẫu ở thanh trên hoặc tự nhập nội dung để hệ thống đối chiếu Nghị định 30/2020/NĐ-CP.</div>`;
+                }
+                return;
+            }
 
             const checks = [];
 
