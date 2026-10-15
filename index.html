@@ -199,14 +199,14 @@
 
             <!-- Cụm nút công cụ nhanh -->
             <div class="flex items-center gap-2 flex-wrap">
-                <button onclick="openModal('modal-paste-raw')" class="flex items-center gap-1.5 text-xs font-semibold bg-teal-600 hover:bg-teal-500 text-white px-3 py-2 rounded-lg border border-teal-400/40 transition shadow-sm" title="Dán nhanh văn bản từ Word hoặc vnEdu để nhận diện">
+                <button onclick="openModal('modal-paste-raw')" class="flex items-center gap-1.5 text-xs font-semibold bg-teal-600 hover:bg-teal-500 text-white px-3 py-2 rounded-lg border border-teal-400/40 transition shadow-sm" title="Tải file hoặc dán nhanh văn bản từ Word/vnEdu để nhận diện">
                     <i data-lucide="file-up" class="w-4 h-4 text-amber-200"></i>
                     <span>Tải / Dán Kế Hoạch Lên</span>
                 </button>
 
-                <button onclick="toggleGuideMode()" id="btn-guide" class="flex items-center gap-1.5 text-xs font-medium bg-blue-700/70 hover:bg-blue-600 text-white px-3 py-2 rounded-lg border border-blue-500/40 transition shadow-sm" title="Hiển thị thước đo lề 30-15-20-20mm và cỡ chữ pt trên tờ A4">
+                <button onclick="toggleGuideMode()" id="btn-guide" class="flex items-center gap-1.5 text-xs font-medium bg-blue-700/70 hover:bg-blue-600 text-white px-3 py-2 rounded-lg border border-blue-500/40 transition shadow-sm" title="Hiển thị thước đo lề 30-15-20-20mm, cỡ chữ pt và thông số Shape trên tờ A4">
                     <i data-lucide="ruler" class="w-4 h-4 text-amber-300"></i>
-                    <span>Soi Lề & Cỡ Chữ</span>
+                    <span>Soi Lề & Shape</span>
                 </button>
 
                 <button onclick="openModal('modal-handbook')" class="flex items-center gap-1.5 text-xs font-medium bg-indigo-700/80 hover:bg-indigo-600 text-white px-3 py-2 rounded-lg border border-indigo-400/40 transition shadow-sm">
@@ -214,9 +214,9 @@
                     <span>Cẩm nang NĐ 30/2020</span>
                 </button>
 
-                <button onclick="exportToWord()" class="flex items-center gap-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-lg shadow transition">
+                <button onclick="exportToWord()" class="flex items-center gap-1.5 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg shadow-md ring-2 ring-emerald-300/50 transition">
                     <i data-lucide="file-down" class="w-4 h-4"></i>
-                    <span>Tải File Word (.doc)</span>
+                    <span>Tải File Word Chuẩn (.doc)</span>
                 </button>
 
                 <button onclick="window.print()" class="flex items-center gap-1.5 text-xs font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-2 rounded-lg shadow transition">
@@ -234,25 +234,25 @@
             <span>Mẫu chuẩn ngành Giáo dục:</span>
         </div>
         <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5">
+            <button onclick="loadTemplate('kh_tieng_anh')" class="template-btn text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1 shadow-2xs">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+                1. KH Chương trình bổ trợ Tiếng Anh (Đã sửa chuẩn 1 dòng + Shape + Bảng 35 tuần)
+            </button>
             <button onclick="loadTemplate('kh_to_cm')" class="template-btn text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="file-Spreadsheet" class="w-3.5 h-3.5 text-blue-600"></i>
-                1. Kế hoạch Tổ chuyên môn (Vật lý - CN)
+                2. Kế hoạch Tổ chuyên môn (Vật lý - CN)
             </button>
             <button onclick="loadTemplate('kh_khkt')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-600"></i>
-                2. Kế hoạch Bồi dưỡng HSG / Thi KHKT
+                3. Kế hoạch Bồi dưỡng HSG / Thi KHKT
             </button>
             <button onclick="loadTemplate('qd_thanh_lap')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="stamp" class="w-3.5 h-3.5 text-rose-600"></i>
-                3. Quyết định Thành lập Ban chỉ đạo
-            </button>
-            <button onclick="loadTemplate('qd_khen_thuong')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
-                <i data-lucide="medal" class="w-3.5 h-3.5 text-amber-600"></i>
-                4. Quyết định Khen thưởng
+                4. Quyết định Thành lập Ban chỉ đạo
             </button>
             <button onclick="loadTemplate('to_trinh')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="send" class="w-3.5 h-3.5 text-emerald-600"></i>
-                5. Tờ trình / Công văn / Thông báo
+                5. Tờ trình / Công văn
             </button>
             <button onclick="loadTemplate('demo_loi')" class="template-btn text-xs bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1" title="Nạp thử một văn bản có nhiều lỗi thể thức để xem hệ thống phát hiện và tự sửa">
                 <i data-lucide="bug" class="w-3.5 h-3.5 text-rose-600"></i>
@@ -418,6 +418,24 @@
                             <input type="text" id="nationalMotto" oninput="syncDocument()" value="Độc lập - Tự do - Hạnh phúc" class="w-full text-[11px] border border-slate-300 rounded-lg px-2 py-1.5 bg-white">
                         </div>
                     </div>
+
+                    <!-- Thanh tinh chỉnh độ dài đường kẻ Shape trực tiếp cho Word -->
+                    <div class="pt-2 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-white p-2.5 rounded-lg border border-blue-100">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-semibold text-slate-600 mb-1">
+                                <span>Độ dài Shape dưới tên Trường:</span>
+                                <span id="label-issuing-shape-pt" class="text-blue-700 font-mono">62pt (~22mm)</span>
+                            </div>
+                            <input type="range" id="issuingShapePt" min="45" max="95" value="62" oninput="syncDocument()" class="w-full accent-blue-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] font-semibold text-slate-600 mb-1">
+                                <span>Độ dài Shape dưới Tiêu ngữ:</span>
+                                <span id="label-motto-shape-pt" class="text-blue-700 font-mono">136pt (~48mm)</span>
+                            </div>
+                            <input type="range" id="mottoShapePt" min="110" max="165" value="136" oninput="syncDocument()" class="w-full accent-blue-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Nhóm 2: Địa danh, Ngày tháng & Tên loại văn bản -->
@@ -474,15 +492,17 @@
                     </div>
 
                     <div>
-                        <div class="flex items-center justify-between mb-1">
-                            <label class="block text-[11px] font-semibold text-slate-700" id="label-bases">Căn cứ ban hành / Kính gửi (Mỗi dòng 1 ý, in nghiêng)</label>
-                            <button onclick="fixBasesPunctuation()" class="text-[10px] text-blue-600 hover:underline font-medium">Chuẩn hóa dấu câu (;)</button>
-                        </div>
-                        <textarea id="docBases" rows="4" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 font-serif italic focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Căn cứ Thông tư số 32/2020/TT-BGDĐT ngày 15 tháng 9 năm 2020 của Bộ trưởng Bộ Giáo dục và Đào tạo..."></textarea>
+                        <label class="block text-[11px] font-semibold text-slate-700 mb-1" id="label-bases">Căn cứ ban hành / Kính gửi (Mỗi dòng 1 căn cứ, in nghiêng, kết thúc bằng dấu ; và dòng cuối dấu .)</label>
+                        <textarea id="docBases" rows="4" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 leading-relaxed focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Căn cứ Thông tư số 32/2020/TT-BGDĐT ngày 15 tháng 9 năm 2020..."></textarea>
                     </div>
 
                     <div>
-                        <label class="block text-[11px] font-semibold text-slate-700 mb-1" id="label-body">Nội dung chính của văn bản (Cỡ chữ 13-14pt, lùi đầu dòng 1cm - 1.27cm)</label>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-[11px] font-semibold text-slate-700" id="label-body">Nội dung chính (Tự động giữ nguyên & phục hồi Bảng biểu)</label>
+                            <button type="button" onclick="reconstructBrokenTableInBody(true)" class="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold px-2 py-0.5 rounded transition flex items-center gap-1" title="Nếu nội dung có bảng Lộ trình bị vỡ thành nhiều dòng rời rạc, bấm để đóng khung lại thành Bảng chuẩn">
+                                <i data-lucide="table-2" class="w-3 h-3"></i> Khôi phục Bảng biểu
+                            </button>
+                        </div>
                         <textarea id="docBody" rows="9" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-2 leading-relaxed focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Nhập các mục I, II, III hoặc Điều 1, Điều 2, Điều 3..."></textarea>
                     </div>
                 </div>
@@ -587,62 +607,62 @@
                     </div>
                 </div>
 
-                <!-- NỘI DUNG VĂN BẢN (Cũng chính là phần xuất ra Word) -->
+                <!-- NỘI DUNG VĂN BẢN TRÊN KHUNG PREVIEW A4 -->
                 <div id="word-export-area">
                     
-                    <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Chia 2 cột chuẩn văn thư: Cơ quan ban hành & Quốc hiệu) -->
-                    <table style="width: 100%; border-collapse: collapse; border: none; margin-bottom: 14pt; table-layout: auto;">
+                    <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Khóa kích thước chuẩn 165mm: Cột trái 78mm - Cột phải 87mm, ép 1 dòng tuyệt đối) -->
+                    <table style="width: 165mm; border-collapse: collapse; border: none; margin-bottom: 14pt; table-layout: fixed;">
                         <tr>
                             <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (Ô số 2) - Ép chuẩn 1 dòng đơn mỗi nội dung -->
-                            <td class="guide-box-highlight" style="width: 46%; vertical-align: top; text-align: center; padding: 0 4pt 0 0; white-space: nowrap;">
-                                <div id="preview-governing" style="font-size: 12pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap;">
+                            <td class="guide-box-highlight" nowrap="nowrap" style="width: 78mm; vertical-align: top; text-align: center; padding: 0 2pt 0 0; white-space: nowrap; overflow: visible;">
+                                <div id="preview-governing" style="font-size: 11pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.15pt;">
                                     SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG
                                 </div>
-                                <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 1pt; white-space: nowrap;">
+                                <div style="font-size: 11pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap; letter-spacing: -0.1pt;">
                                     <span id="preview-issuing" style="display: inline-block; white-space: nowrap;">TRƯỜNG THCS&THPT HÒA THUẬN</span>
-                                    <span class="doc-element-badge">12pt Đậm (1 dòng)</span>
+                                    <span class="doc-element-badge">11-12pt Đậm (1 dòng)</span>
                                 </div>
                                 <!-- Đường kẻ ngang định dạng Shape dưới tên cơ quan ban hành (1/3 đến 1/2 độ dài dòng chữ) -->
-                                <div class="doc-shape-line-wrapper" title="Đối tượng Shape Line (Độ dài bằng 1/3 đến 1/2 tên cơ quan ban hành, đặt cân đối)">
-                                    <svg id="shape-svg-issuing" class="doc-shape-svg" width="88" height="6" viewBox="0 0 88 6">
-                                        <line class="doc-shape-line-stroke" x1="0" y1="3" x2="88" y2="3" stroke="#000000" stroke-width="1.15" stroke-linecap="square" />
+                                <div class="doc-shape-line-wrapper" title="Đối tượng Word VML Shape Line (<v:line>) dưới tên Trường">
+                                    <svg id="shape-svg-issuing" class="doc-shape-svg" width="83" height="6" viewBox="0 0 83 6">
+                                        <line class="doc-shape-line-stroke" x1="0" y1="3" x2="83" y2="3" stroke="#000000" stroke-width="1.2" stroke-linecap="square" />
                                         <circle class="doc-shape-handle no-print" cx="0" cy="3" r="2.6" />
-                                        <circle class="doc-shape-handle no-print" cx="88" cy="3" r="2.6" />
+                                        <circle class="doc-shape-handle no-print" cx="83" cy="3" r="2.6" />
                                     </svg>
-                                    <span class="doc-element-badge">Shape Line (42% - 0.85pt)</span>
+                                    <span class="doc-element-badge">Shape &lt;v:line&gt;</span>
                                 </div>
                                 
                                 <!-- Số và ký hiệu văn bản (Ô số 3) -->
-                                <div style="font-size: 13pt; font-weight: normal; margin-top: 3pt; white-space: nowrap;">
-                                    <span id="preview-symbol">Số: 15/KH-THCS&THPT</span>
+                                <div style="font-size: 13pt; font-weight: normal; margin-top: 4pt; white-space: nowrap;">
+                                    <span id="preview-symbol">Số: 2371/KH-THCS&THPT</span>
                                     <span class="doc-element-badge">13pt Thường</span>
                                 </div>
                             </td>
 
                             <!-- Cột phải: Quốc hiệu & Tiêu ngữ (Ô số 1) - Ép chuẩn 1 dòng đơn -->
-                            <td class="guide-box-highlight" style="width: 54%; vertical-align: top; text-align: center; padding: 0 0 0 4pt; white-space: nowrap;">
-                                <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; white-space: nowrap;">
+                            <td class="guide-box-highlight" nowrap="nowrap" style="width: 87mm; vertical-align: top; text-align: center; padding: 0 0 0 2pt; white-space: nowrap; overflow: visible;">
+                                <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.15pt;">
                                     <span id="preview-national">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
                                     <span class="doc-element-badge">12pt Hoa Đậm</span>
                                 </div>
-                                <div style="font-size: 13pt; font-weight: bold; line-height: 1.3; margin-top: 1pt; white-space: nowrap;">
+                                <div style="font-size: 13pt; font-weight: bold; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap;">
                                     <span id="preview-motto" style="display: inline-block; white-space: nowrap;">Độc lập - Tự do - Hạnh phúc</span>
-                                    <span class="doc-element-badge">13-14pt Đậm</span>
+                                    <span class="doc-element-badge">13pt Đậm</span>
                                 </div>
                                 <!-- Đường kẻ ngang định dạng Shape dưới Tiêu ngữ (Độ dài bằng đúng 100% độ dài dòng chữ) -->
-                                <div class="doc-shape-line-wrapper" title="Đối tượng Shape Line (Độ dài bằng đúng độ dài dòng Tiêu ngữ)">
-                                    <svg id="shape-svg-motto" class="doc-shape-svg" width="166" height="6" viewBox="0 0 166 6">
-                                        <line class="doc-shape-line-stroke" x1="0" y1="3" x2="166" y2="3" stroke="#000000" stroke-width="1.15" stroke-linecap="square" />
+                                <div class="doc-shape-line-wrapper" title="Đối tượng Word VML Shape Line (<v:line>) dưới Tiêu ngữ">
+                                    <svg id="shape-svg-motto" class="doc-shape-svg" width="181" height="6" viewBox="0 0 181 6">
+                                        <line class="doc-shape-line-stroke" x1="0" y1="3" x2="181" y2="3" stroke="#000000" stroke-width="1.2" stroke-linecap="square" />
                                         <circle class="doc-shape-handle no-print" cx="0" cy="3" r="2.6" />
-                                        <circle class="doc-shape-handle no-print" cx="166" cy="3" r="2.6" />
+                                        <circle class="doc-shape-handle no-print" cx="181" cy="3" r="2.6" />
                                     </svg>
-                                    <span class="doc-element-badge">Shape Line (100% Tiêu ngữ)</span>
+                                    <span class="doc-element-badge">Shape &lt;v:line&gt; 100%</span>
                                 </div>
                                 
                                 <!-- Địa danh và thời gian ban hành (Ô số 4) -->
                                 <div style="font-size: 13pt; font-style: italic; margin-top: 6pt; white-space: nowrap;">
                                     <span id="preview-datetime">Hòa Thuận, ngày 05 tháng 02 năm 2026</span>
-                                    <span class="doc-element-badge">13-14pt Nghiêng</span>
+                                    <span class="doc-element-badge">13pt Nghiêng</span>
                                 </div>
                             </td>
                         </tr>
@@ -958,9 +978,120 @@
 
     <script>
         // =========================================================================
-        // KHO DỮ LIỆU MẪU CHUẨN NGÀNH GIÁO DỤC (AN GIANG / HÒA THUẬN / TỔ VẬT LÝ-CN)
+        // KHO DỮ LIỆU MẪU CHUẨN NGÀNH GIÁO DỤC (BAO GỒM FILE KẾ HOẠCH TIẾNG ANH 35 TUẦN CỦA THẦY ĐÃ ĐƯỢC CHUẨN HÓA)
         // =========================================================================
         const TEMPLATES = {
+            kh_tieng_anh: {
+                docCategory: 'kehoach',
+                governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
+                issuingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
+                docSymbol: 'Số: 2371/KH-THCS&THPT',
+                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
+                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
+                docLocation: 'Hòa Thuận',
+                docDay: '05',
+                docMonth: '02',
+                docYear: '2026',
+                docTypeTitle: 'KẾ HOẠCH',
+                docSubject: 'Triển khai Chương trình bổ trợ tiếng Anh và các hoạt động tăng cường môi trường sử dụng tiếng Anh năm học 2026 - 2027',
+                decisionAuthority: '',
+                docBases: `Căn cứ Đề án số 245/ĐA-UBND ngày 15/01/2026 của Ủy ban nhân dân tỉnh An Giang về “Đưa tiếng Anh thành ngôn ngữ thứ hai trong trường học giai đoạn 2025 - 2035, tầm nhìn đến năm 2045” trên địa bàn tỉnh An Giang;
+Căn cứ Công văn số 6608/SGDĐT-GDPT ngày 09/9/2026 của Sở Giáo dục và Đào tạo về triển khai hoạt động tự luyện, rèn luyện tiếng Anh trên hệ thống IOE năm học 2026 - 2027;
+Căn cứ Kế hoạch số 125/KH-SGDĐT ngày 01/10/2026 của Sở Giáo dục và Đào tạo tỉnh An Giang về triển khai Chương trình bổ trợ tiếng Anh và các hoạt động tăng cường môi trường sử dụng tiếng Anh năm học 2026 - 2027;
+Căn cứ Kế hoạch giáo dục của Trường THCS&THPT Hòa Thuận năm học 2026 - 2027.`,
+                docBody: `Trường THCS&THPT Hòa Thuận xây dựng Kế hoạch triển khai Chương trình bổ trợ tiếng Anh và các hoạt động tăng cường môi trường sử dụng tiếng Anh năm học 2026 - 2027 như sau:
+I. MỤC ĐÍCH, YÊU CẦU
+1. Mục đích
+Cụ thể hóa các nhiệm vụ của Đề án số 245/ĐA-UBND trong năm học 2026 - 2027 phù hợp giai đoạn 2025 - 2030 “Thí điểm - Tạo nền tảng”; từng bước mở rộng cơ hội tiếp xúc, thực hành và sử dụng tiếng Anh thường xuyên cho học sinh nhà trường trên cơ sở điều kiện thực tế.
+Tổ chức đồng bộ các hoạt động học tập bổ trợ, tự luyện, rèn luyện, câu lạc bộ, hoạt động trải nghiệm, sân chơi học thuật và ứng dụng nền tảng số; hỗ trợ học sinh củng cố kiến thức, phát triển kỹ năng nghe, nói, đọc, viết và hình thành thói quen sử dụng tiếng Anh trong học tập, giao tiếp.
+Khai thác dữ liệu học tập và kết quả hoạt động để theo dõi mức độ tham gia, tiến bộ của học sinh, xác định nhóm cần hỗ trợ, điều chỉnh phương thức tổ chức và phục vụ công tác quản lý, chỉ đạo chuyên môn của nhà trường.
+2. Yêu cầu
+Bám sát mục tiêu, nhiệm vụ, lộ trình và phân vùng của Đề án số 245/ĐA-UBND; bảo đảm thiết thực, khả thi, không triển khai hình thức, không áp dụng đồng loạt các yêu cầu vượt quá điều kiện của nhà trường và học sinh.
+Các hoạt động bổ trợ không thay thế Chương trình giáo dục phổ thông, không làm thay đổi kế hoạch giáo dục của nhà trường; không gây quá tải, áp lực về thời lượng, thành tích hoặc thi đua đối với học sinh và giáo viên.
+Không thu học phí, phí tài khoản, phí sử dụng nền tảng hoặc đặt ra khoản thu bắt buộc đối với học sinh, cha mẹ học sinh để tham gia; không yêu cầu học sinh mua thiết bị riêng.
+Ưu tiên sử dụng dữ liệu từ hệ thống hiện có; không lập thêm hồ sơ, sổ sách, báo cáo hoặc minh chứng không cần thiết. Báo cáo chỉ thực hiện khi phục vụ chỉ đạo, sơ kết, tổng kết hoặc theo yêu cầu của cơ quan có thẩm quyền.
+Bảo đảm an toàn thông tin, bảo vệ dữ liệu cá nhân; việc thu thập, khai thác và sử dụng dữ liệu đúng mục đích, đúng phạm vi và đúng quy định.
+II. ĐỐI TƯỢNG, PHẠM VI VÀ NGUYÊN TẮC TRIỂN KHAI
+1. Đối tượng, phạm vi
+Học sinh các khối lớp 6, 7, 8, 9 (THCS) và 10, 11, 12 (THPT) của Trường THCS&THPT Hòa Thuận thuộc đối tượng học môn Tiếng Anh theo Chương trình giáo dục phổ thông 2018.
+Các hoạt động câu lạc bộ, trải nghiệm, sân chơi phát triển năng khiếu được tổ chức theo phạm vi, đối tượng và điều kiện cụ thể của từng hoạt động, trên tinh thần tự nguyện; không sử dụng kết quả tham gia làm điều kiện bắt buộc để đánh giá, xếp loại học sinh hoặc thi đua.
+2. Nguyên tắc theo điều kiện địa bàn
+Nhà trường triển khai có chọn lọc, tập trung nâng cao chất lượng dạy học, tăng cơ hội luyện tập, sử dụng học liệu số; ưu tiên củng cố nền tảng, hỗ trợ thiết bị, đường truyền, tài khoản, học liệu và hướng dẫn sử dụng, tổ chức linh hoạt, không áp dụng yêu cầu cao về thời lượng hoặc mức độ tích hợp khi điều kiện chưa bảo đảm.
+III. MỤC TIÊU, CHỈ TIÊU NĂM HỌC 2026 - 2027
+1. Chương trình bổ trợ tiếng Anh trên Trường học số goEdu
+100% học sinh thuộc phạm vi triển khai được cung cấp thông tin, hướng dẫn và đầu mối hỗ trợ.
+Phấn đấu tối thiểu 90% học sinh thuộc phạm vi triển khai tham gia và hoàn thành nội dung theo lộ trình; tối thiểu 80% học sinh tham gia duy trì thời lượng học tập từ 30 phút/tuần.
+2. Xây dựng môi trường sử dụng tiếng Anh
+Tổ chức thí điểm Câu lạc bộ luyện nói tiếng Anh và Câu lạc bộ đọc tiếng Anh khi đủ điều kiện; nhân rộng khi có hiệu quả.
+3. Khảo sát, đánh giá và sử dụng dữ liệu
+Phối hợp tổ chức ít nhất 01 đợt đánh giá cuối năm học theo phạm vi do Sở Giáo dục và Đào tạo thống nhất.
+IV. NHIỆM VỤ VÀ GIẢI PHÁP
+1. Chuẩn bị điều kiện triển khai: Thành lập tổ phụ trách gồm Phó Hiệu trưởng phụ trách chuyên môn, Tổ trưởng Tổ Ngoại ngữ, giáo viên tiếng Anh, giáo viên phụ trách công nghệ thông tin.
+2. Triển khai Chương trình bổ trợ tiếng Anh trên goEdu: Chương trình do VTC Online cung cấp miễn phí tài khoản, nền tảng, nội dung và hỗ trợ kỹ thuật.
+3. Xây dựng câu lạc bộ, hoạt động trải nghiệm và môi trường sử dụng tiếng Anh.
+4. Hỗ trợ học sinh và bảo đảm công bằng trong tiếp cận: Bố trí phòng máy, thiết bị dùng chung của nhà trường hỗ trợ học sinh khó khăn.
+5. Quản lý dữ liệu, theo dõi và đánh giá định kỳ hằng tháng, sơ kết học kỳ I và tổng kết cuối năm học.
+6. Công tác thông tin, tuyên truyền đầy đủ đến cán bộ quản lý, giáo viên, học sinh và cha mẹ học sinh.
+7. Kiểm tra, giám sát và xử lý vướng mắc kịp thời.
+V. LỘ TRÌNH THỰC HIỆN
+Chương trình được tổ chức trong 35 tuần (từ ngày 12/10/2026 đến ngày 13/6/2027), gồm 34 tuần nội dung và tuần 35 củng cố, hoàn thiện nội dung chưa đạt, tổng kết. Học sinh duy trì thời lượng học tập tối thiểu 30 phút/tuần.
+Lưu ý: Các tuần 1, 4, 8, 12, 13, 20, 24, 28, 32, 35 là các tuần Sở Giáo dục và Đào tạo (Phòng Giáo dục phổ thông) chủ trì rà soát, tổng hợp; nhà trường phối hợp cung cấp thông tin, dữ liệu khi được yêu cầu.
+Tuần | Thời gian | Nội dung thực hiện tại trường | Phụ trách | Phối hợp
+1 | 12/10 - 18/10/2026 | Khởi động; ban hành Kế hoạch, phổ biến đến giáo viên và học sinh; kiểm tra/cấp tài khoản; hướng dẫn truy cập; thực hiện nội dung tuần 1. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+2 | 19/10 - 25/10/2026 | Thực hiện nội dung tuần 2; rà soát học sinh chưa đăng nhập, hỗ trợ tài khoản. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+3 | 26/10 - 01/11/2026 | Thực hiện nội dung tuần 3; rà soát thiết bị, đường truyền và điều kiện tham gia của học sinh. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+4 | 02/11 - 08/11/2026 | Thực hiện nội dung tuần 4; rà soát dữ liệu tháng đầu, xác định nhóm học sinh cần hỗ trợ. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+5 | 09/11 - 15/11/2026 | Thực hiện nội dung tuần 5; hỗ trợ học sinh chưa bảo đảm tiến độ. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+6 | 16/11 - 22/11/2026 | Thực hiện nội dung tuần 6; duy trì học tập theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+7 | 23/11 - 29/11/2026 | Thực hiện nội dung tuần 7; theo dõi mức độ hoàn thành theo lớp. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+8 | 30/11 - 06/12/2026 | Thực hiện nội dung tuần 8; tổng hợp dữ liệu, điều chỉnh biện pháp hỗ trợ. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+9 | 07/12 - 13/12/2026 | Thực hiện nội dung tuần 9; duy trì học tập theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+10 | 14/12 - 20/12/2026 | Thực hiện nội dung tuần 10; rà soát mức độ tham gia và thời lượng. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+11 | 21/12 - 27/12/2026 | Thực hiện nội dung tuần 11; hỗ trợ nhóm học sinh còn hạn chế. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+12 | 28/12/2026 - 03/01/2027 | Thực hiện nội dung tuần 12; sơ bộ đánh giá kết quả giai đoạn 1; chuẩn bị dữ liệu sơ kết học kỳ I. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+13 | 04/01 - 10/01/2027 | Thực hiện nội dung tuần 13; sơ kết học kỳ I; điều chỉnh lộ trình học kỳ II. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+14 | 11/01 - 17/01/2027 | Thực hiện nội dung tuần 14; duy trì học tập theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+15 | 18/01 - 24/01/2027 | Thực hiện nội dung tuần 15; theo dõi mức độ hoàn thành theo lớp. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+16 | 25/01 - 31/01/2027 | Thực hiện nội dung tuần 16; rà soát tiến độ, hỗ trợ học sinh trước thời gian nghỉ. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+17 | 01/02 - 07/02/2027 | Thực hiện nội dung tuần 17; tổ chức linh hoạt theo kế hoạch thời gian năm học, hướng dẫn học sinh tự học theo khả năng. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+18 | 08/02 - 14/02/2027 | Thực hiện nội dung tuần 18; tiếp tục lộ trình sau thời gian nghỉ. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+19 | 15/02 - 21/02/2027 | Thực hiện nội dung tuần 19; rà soát tài khoản, hỗ trợ học sinh chưa tiếp tục học. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+20 | 22/02 - 28/02/2027 | Thực hiện nội dung tuần 20; rà soát giữa giai đoạn, phân tích tỷ lệ tham gia và thời lượng. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+21 | 01/03 - 07/03/2027 | Thực hiện nội dung tuần 21; triển khai biện pháp hỗ trợ sau rà soát. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+22 | 08/03 - 14/03/2027 | Thực hiện nội dung tuần 22; duy trì học tập theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+23 | 15/03 - 21/03/2027 | Thực hiện nội dung tuần 23; theo dõi mức độ hoàn thành theo lớp, khối lớp. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+24 | 22/03 - 28/03/2027 | Thực hiện nội dung tuần 24; rà soát tiến độ và khả năng hoàn thành chương trình. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+25 | 29/03 - 04/04/2027 | Thực hiện nội dung tuần 25; tập trung hỗ trợ học sinh chậm tiến độ. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+26 | 05/04 - 11/04/2027 | Thực hiện nội dung tuần 26; duy trì học tập theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+27 | 12/04 - 18/04/2027 | Thực hiện nội dung tuần 27; chuẩn bị dữ liệu phục vụ đánh giá cuối năm. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+28 | 19/04 - 25/04/2027 | Thực hiện nội dung tuần 28; rà soát mức độ tiến bộ và nhóm cần tiếp tục hỗ trợ. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+29 | 26/04 - 02/05/2027 | Thực hiện nội dung tuần 29; tiếp tục hoàn thành nội dung theo lộ trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+30 | 03/05 - 09/05/2027 | Thực hiện nội dung tuần 30; rà soát tiến độ cuối năm học. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+31 | 10/05 - 16/05/2027 | Thực hiện nội dung tuần 31; ưu tiên hoàn thành nội dung còn thiếu. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+32 | 17/05 - 23/05/2027 | Thực hiện nội dung tuần 32; tổng hợp dữ liệu phục vụ đánh giá cuối năm. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+33 | 24/05 - 30/05/2027 | Thực hiện nội dung tuần 33; hoàn thiện nội dung học tập chính. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+34 | 31/05 - 06/06/2027 | Thực hiện nội dung tuần 34; hoàn thành nội dung theo khung chương trình. | GVCN | Tổ Ngoại ngữ; GV bộ môn
+35 | 07/06 - 13/06/2027 | Củng cố; hoàn thiện nội dung chưa đạt; tổng kết, tổng hợp dữ liệu và chuẩn bị báo cáo. | Tổ Ngoại ngữ | GVCN; Tổ CNTT; Đoàn TN
+VI. KINH PHÍ THỰC HIỆN
+Chương trình bổ trợ tiếng Anh trên goEdu và hoạt động tự học được cung cấp tài khoản, nền tảng, nội dung theo phạm vi miễn phí do đơn vị phối hợp công bố/thống nhất. Không thu học phí, phí tài khoản, phí sử dụng hệ thống hoặc đặt ra khoản thu bắt buộc đối với học sinh, cha mẹ học sinh.
+VII. TỔ CHỨC THỰC HIỆN
+1. Hiệu trưởng, Ban Giám hiệu: Ban hành Kế hoạch; phân công đầu mối, giáo viên hướng dẫn, theo dõi và hỗ trợ; chỉ đạo, kiểm tra việc thực hiện.
+2. Tổ Ngoại ngữ: Làm đầu mối chuyên môn, hướng dẫn giáo viên và học sinh sử dụng nền tảng; theo dõi dữ liệu theo tuần, tháng.
+3. Giáo viên chủ nhiệm: Thông báo, hướng dẫn học sinh trong lớp đăng nhập, học tập và duy trì thời lượng tối thiểu 30 phút/tuần.
+4. Giáo viên phụ trách công nghệ thông tin, thiết bị: Hỗ trợ kỹ thuật về tài khoản, đường truyền, phòng máy.
+5. Đoàn Thanh niên: Phối hợp tổ chức hoạt động trải nghiệm, giao lưu, sinh hoạt bằng tiếng Anh.
+VIII. CHẾ ĐỘ THEO DÕI, BÁO CÁO
+Trên đây là Kế hoạch triển khai Chương trình bổ trợ tiếng Anh và các hoạt động tăng cường môi trường sử dụng tiếng Anh năm học 2026 - 2027 của Trường THCS&THPT Hòa Thuận. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các tổ chuyên môn, giáo viên chủ nhiệm kịp thời phản ánh về Ban Giám hiệu để được hướng dẫn, giải quyết./.`,
+                docRecipients: `- Sở GDĐT (Phòng GDPT) để báo cáo;
+- Ban Giám hiệu;
+- Các tổ chuyên môn, GVCN, Đoàn TN;
+- Lưu: VT, CM.`,
+                signAuthPrefix: '',
+                signPosition: 'HIỆU TRƯỞNG',
+                signerName: 'Trần Quốc Tuấn',
+                approvalTitle: ''
+            },
+
             kh_to_cm: {
                 docCategory: 'kehoach',
                 governingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
@@ -1246,7 +1377,7 @@ Nguyễn Văn Minh`
         // =========================================================================
         window.onload = function() {
             lucide.createIcons();
-            loadTemplate('kh_to_cm');
+            loadTemplate('kh_tieng_anh');
             setupDragAndDropZone();
         };
 
@@ -1301,11 +1432,11 @@ Nguyễn Văn Minh`
                 let extractedText = '';
 
                 if (fileNameLower.endsWith('.docx')) {
-                    // Sử dụng Mammoth.js để trích xuất văn bản từ file Word .docx
+                    // Sử dụng Mammoth.js convertToHtml để GIỮ NGUYÊN BẢNG BIỂU (<table>) và chuyển thành dòng ngăn cách "|"
                     const arrayBuffer = await file.arrayBuffer();
                     if (window.mammoth) {
-                        const result = await window.mammoth.extractRawText({ arrayBuffer: arrayBuffer });
-                        extractedText = result.value || '';
+                        const htmlResult = await window.mammoth.convertToHtml({ arrayBuffer: arrayBuffer });
+                        extractedText = convertHtmlTablesToPipeLines(htmlResult.value || '');
                     } else {
                         throw new Error('Thư viện đọc file .docx (Mammoth) chưa sẵn sàng.');
                     }
@@ -1341,13 +1472,7 @@ Nguyễn Văn Minh`
                     // Các định dạng .doc (HTML/Text), .txt, .md, .html
                     const rawContent = await file.text();
                     if (/<html|<body|<div|<p|<table/i.test(rawContent)) {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(rawContent, 'text/html');
-                        // Thêm xuống dòng sau các thẻ block để không bị dính chữ
-                        doc.querySelectorAll('p, div, tr, li, br, h1, h2, h3, h4').forEach(el => {
-                            el.appendChild(doc.createTextNode('\n'));
-                        });
-                        extractedText = doc.body ? doc.body.textContent : rawContent;
+                        extractedText = convertHtmlTablesToPipeLines(rawContent);
                     } else {
                         extractedText = rawContent;
                     }
@@ -1368,6 +1493,103 @@ Nguyễn Văn Minh`
                 loadingBox.classList.add('hidden');
                 loadingBox.classList.remove('flex');
                 showToast('Không thể đọc trực tiếp file này. Thầy có thể mở file, copy và bấm "Dán nội dung văn bản" nhé!');
+            }
+        }
+
+        // Chuyển đổi HTML có chứa bảng <table> (từ .docx hoặc .doc) thành định dạng dòng có dấu "|" để bảo toàn 100% bảng biểu
+        function convertHtmlTablesToPipeLines(htmlString) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+
+            // Bỏ qua bảng tiêu đề đầu văn bản (chứa CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM) và bảng chữ ký cuối văn bản (chứa Nơi nhận:)
+            doc.querySelectorAll('table').forEach(table => {
+                const tableText = table.textContent || '';
+                const isHeaderTable = /CỘNG\s+HÒA\s+XÃ\s+HỘI/i.test(tableText) && /Độc\s+lập/i.test(tableText);
+                const isFooterTable = /Nơi\s+nhận\s*:/i.test(tableText);
+
+                if (isHeaderTable || isFooterTable) {
+                    // Tách từng ô thành từng dòng riêng
+                    table.querySelectorAll('td, th, p, div').forEach(cell => {
+                        cell.appendChild(doc.createTextNode('\n'));
+                    });
+                } else {
+                    // Đây là bảng dữ liệu trong Nội dung văn bản (VD: Bảng lộ trình 35 tuần) -> chuyển mỗi hàng <tr> thành 1 dòng ngăn cách bởi " | "
+                    const rows = [];
+                    table.querySelectorAll('tr').forEach(tr => {
+                        const cells = [];
+                        tr.querySelectorAll('th, td').forEach(td => {
+                            const cellVal = (td.textContent || '').replace(/\s+/g, ' ').trim();
+                            cells.push(cellVal);
+                        });
+                        if (cells.some(c => c.length > 0)) {
+                            rows.push(cells.join(' | '));
+                        }
+                    });
+                    const replacement = doc.createTextNode('\n' + rows.join('\n') + '\n');
+                    table.parentNode.replaceChild(replacement, table);
+                }
+            });
+
+            doc.querySelectorAll('p, div, li, br, h1, h2, h3, h4').forEach(el => {
+                el.appendChild(doc.createTextNode('\n'));
+            });
+
+            return doc.body ? doc.body.textContent : htmlString;
+        }
+
+        // Bộ khôi phục Bảng biểu thông minh (Nếu bảng 5 cột Tuần | Thời gian | Nội dung | Phụ trách | Phối hợp bị vỡ thành từng dòng đơn)
+        function autoReconstructBrokenScheduleLines(lines) {
+            const out = [];
+            let i = 0;
+            while (i < lines.length) {
+                // Nhận diện 5 dòng tiêu đề bảng bị vỡ: Tuần / Thời gian / Nội dung... / Phụ trách / Phối hợp
+                if (
+                    i + 4 < lines.length &&
+                    /^Tuần$/i.test(lines[i]) &&
+                    /^Thời\s+gian$/i.test(lines[i + 1]) &&
+                    /^Nội\s+dung/i.test(lines[i + 2]) &&
+                    /^Phụ\s+trách$/i.test(lines[i + 3]) &&
+                    /^Phối\s+hợp$/i.test(lines[i + 4])
+                ) {
+                    out.push(`${lines[i]} | ${lines[i + 1]} | ${lines[i + 2]} | ${lines[i + 3]} | ${lines[i + 4]}`);
+                    i += 5;
+                    // Tiếp tục gom các bộ 5 dòng tiếp theo nếu dòng đầu là số thứ tự tuần (1..52) và dòng thứ 2 là ngày tháng
+                    while (
+                        i + 4 < lines.length &&
+                        /^\d{1,2}$/.test(lines[i]) &&
+                        /\d{1,2}\/\d{1,2}/.test(lines[i + 1])
+                    ) {
+                        out.push(`${lines[i]} | ${lines[i + 1]} | ${lines[i + 2]} | ${lines[i + 3]} | ${lines[i + 4]}`);
+                        i += 5;
+                    }
+                    continue;
+                }
+
+                // Nhận diện bảng 4 cột hoặc 5 cột bắt đầu bằng STT
+                if (
+                    i + 3 < lines.length &&
+                    /^STT$/i.test(lines[i]) &&
+                    !lines[i].includes('|')
+                ) {
+                    out.push(lines[i]);
+                    i++;
+                    continue;
+                }
+
+                out.push(lines[i]);
+                i++;
+            }
+            return out;
+        }
+
+        function reconstructBrokenTableInBody(showNotice = false) {
+            const bodyEl = document.getElementById('docBody');
+            const rawLines = bodyEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const fixedLines = autoReconstructBrokenScheduleLines(rawLines);
+            bodyEl.value = fixedLines.join('\n');
+            syncDocument();
+            if (showNotice) {
+                showToast('Đã tự động khôi phục các dòng rời rạc thành Bảng biểu có kẻ khung chuẩn!');
             }
         }
 
@@ -1765,9 +1987,11 @@ Nguyễn Văn Minh`
             }
 
             parsed.docBases = basesLines.join('\n');
-            parsed.docBody = bodyLines.join('\n');
+            // Tự động khôi phục bảng biểu nếu file tải lên có bảng bị băm thành từng dòng rời rạc
+            const reconstructedBodyLines = autoReconstructBrokenScheduleLines(bodyLines);
+            parsed.docBody = reconstructedBodyLines.join('\n');
             recognizedStatus.canCu = basesLines.length > 0;
-            recognizedStatus.noiDung = bodyLines.length > 0;
+            recognizedStatus.noiDung = reconstructedBodyLines.length > 0;
 
             // Đảm bảo các trường không bị rỗng hoàn toàn nếu file tải lên thiếu một số mục phụ
             if (!parsed.governingBody) parsed.governingBody = 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG';
@@ -1783,27 +2007,33 @@ Nguyễn Văn Minh`
             if (!parsed.signPosition) parsed.signPosition = 'HIỆU TRƯỞNG';
             if (!parsed.signerName) parsed.signerName = 'Trần Quốc Tuấn';
 
-            // Đổ toàn bộ dữ liệu đã nhận diện vào các mục soạn thảo
-            document.getElementById('docCategory').value = parsed.docCategory;
-            document.getElementById('governingBody').value = parsed.governingBody;
-            document.getElementById('issuingBody').value = parsed.issuingBody;
-            document.getElementById('docSymbol').value = parsed.docSymbol;
-            document.getElementById('nationalName').value = parsed.nationalName;
-            document.getElementById('nationalMotto').value = parsed.nationalMotto;
-            document.getElementById('docLocation').value = parsed.docLocation;
-            document.getElementById('docDay').value = parsed.docDay;
-            document.getElementById('docMonth').value = parsed.docMonth;
-            document.getElementById('docYear').value = parsed.docYear;
-            document.getElementById('docTypeTitle').value = parsed.docTypeTitle;
-            document.getElementById('docSubject').value = parsed.docSubject;
-            document.getElementById('decisionAuthority').value = parsed.decisionAuthority;
-            document.getElementById('docBases').value = parsed.docBases;
-            document.getElementById('docBody').value = parsed.docBody;
-            document.getElementById('docRecipients').value = parsed.docRecipients;
-            document.getElementById('signAuthPrefix').value = parsed.signAuthPrefix;
-            document.getElementById('signPosition').value = parsed.signPosition;
-            document.getElementById('signerName').value = parsed.signerName;
-            document.getElementById('approvalTitle').value = parsed.approvalTitle;
+            // Đổ toàn bộ dữ liệu đã nhận diện vào các mục soạn thảo một cách an toàn
+            const fieldMap = {
+                docCategory: parsed.docCategory,
+                governingBody: parsed.governingBody,
+                issuingBody: parsed.issuingBody,
+                docSymbol: parsed.docSymbol,
+                nationalName: parsed.nationalName,
+                nationalMotto: parsed.nationalMotto,
+                docLocation: parsed.docLocation,
+                docDay: parsed.docDay,
+                docMonth: parsed.docMonth,
+                docYear: parsed.docYear,
+                docTypeTitle: parsed.docTypeTitle,
+                docSubject: parsed.docSubject,
+                decisionAuthority: parsed.decisionAuthority,
+                docBases: parsed.docBases,
+                docBody: parsed.docBody,
+                docRecipients: parsed.docRecipients,
+                signAuthPrefix: parsed.signAuthPrefix,
+                signPosition: parsed.signPosition,
+                signerName: parsed.signerName,
+                approvalTitle: parsed.approvalTitle
+            };
+            Object.entries(fieldMap).forEach(([id, val]) => {
+                const el = document.getElementById(id);
+                if (el) el.value = val ?? '';
+            });
 
             handleCategoryChange(false);
             syncDocument();
@@ -1893,26 +2123,20 @@ Nguyễn Văn Minh`
             const tpl = TEMPLATES[key];
             if (!tpl) return;
 
-            document.getElementById('docCategory').value = tpl.docCategory;
-            document.getElementById('governingBody').value = tpl.governingBody;
-            document.getElementById('issuingBody').value = tpl.issuingBody;
-            document.getElementById('docSymbol').value = tpl.docSymbol;
-            document.getElementById('nationalName').value = tpl.nationalName;
-            document.getElementById('nationalMotto').value = tpl.nationalMotto;
-            document.getElementById('docLocation').value = tpl.docLocation;
-            document.getElementById('docDay').value = tpl.docDay;
-            document.getElementById('docMonth').value = tpl.docMonth;
-            document.getElementById('docYear').value = tpl.docYear;
-            document.getElementById('docTypeTitle').value = tpl.docTypeTitle;
-            document.getElementById('docSubject').value = tpl.docSubject;
-            document.getElementById('decisionAuthority').value = tpl.decisionAuthority;
-            document.getElementById('docBases').value = tpl.docBases;
-            document.getElementById('docBody').value = tpl.docBody;
-            document.getElementById('docRecipients').value = tpl.docRecipients;
-            document.getElementById('signAuthPrefix').value = tpl.signAuthPrefix;
-            document.getElementById('signPosition').value = tpl.signPosition;
-            document.getElementById('signerName').value = tpl.signerName;
-            document.getElementById('approvalTitle').value = tpl.approvalTitle;
+            const templateFields = [
+                'docCategory', 'governingBody', 'issuingBody', 'docSymbol',
+                'nationalName', 'nationalMotto', 'docLocation', 'docDay',
+                'docMonth', 'docYear', 'docTypeTitle', 'docSubject',
+                'decisionAuthority', 'docBases', 'docBody', 'docRecipients',
+                'signAuthPrefix', 'signPosition', 'signerName', 'approvalTitle'
+            ];
+
+            templateFields.forEach(fieldId => {
+                const el = document.getElementById(fieldId);
+                if (el && tpl[fieldId] !== undefined) {
+                    el.value = tpl[fieldId];
+                }
+            });
 
             handleCategoryChange(false);
             syncDocument();
@@ -1963,13 +2187,27 @@ Nguyễn Văn Minh`
         // =========================================================================
         function syncDocument() {
             const cat = document.getElementById('docCategory').value;
-            const governingBody = document.getElementById('governingBody').value.trim();
-            const issuingBody = document.getElementById('issuingBody').value.trim();
+            const governingBody = document.getElementById('governingBody').value.replace(/\s+/g, ' ').trim();
+            const issuingBody = document.getElementById('issuingBody').value.replace(/\s+/g, ' ').trim();
             const docSymbol = document.getElementById('docSymbol').value.trim();
-            const nationalName = document.getElementById('nationalName').value.trim();
-            const nationalMotto = document.getElementById('nationalMotto').value.trim();
+            const nationalName = document.getElementById('nationalName').value.replace(/\s+/g, ' ').trim();
+            const nationalMotto = document.getElementById('nationalMotto').value.replace(/\s+/g, ' ').trim();
             const docLocation = document.getElementById('docLocation').value.trim();
-            // 1. Cập nhật Tiêu đề Cơ quan & Quốc hiệu (Đảm bảo mỗi nội dung nằm trên 1 dòng đơn duy nhất)
+            const docDay = document.getElementById('docDay').value.trim();
+            const docMonth = document.getElementById('docMonth').value.trim();
+            const docYear = document.getElementById('docYear').value.trim();
+            const docTypeTitle = document.getElementById('docTypeTitle').value.trim();
+            const docSubject = document.getElementById('docSubject').value.trim();
+            const decisionAuthority = document.getElementById('decisionAuthority').value.trim();
+            const docBases = document.getElementById('docBases').value.trim();
+            const docBody = document.getElementById('docBody').value.trim();
+            const docRecipients = document.getElementById('docRecipients').value.trim();
+            const signAuthPrefix = document.getElementById('signAuthPrefix').value.trim();
+            const signPosition = document.getElementById('signPosition').value.trim();
+            const signerName = document.getElementById('signerName').value.trim();
+            const approvalTitle = document.getElementById('approvalTitle').value.trim();
+
+            // 1. Cập nhật Tiêu đề Cơ quan & Quốc hiệu (Đảm bảo mỗi nội dung nằm trên 1 dòng đơn duy nhất cả trên Web và Word)
             const govEl = document.getElementById('preview-governing');
             const issEl = document.getElementById('preview-issuing');
             const natEl = document.getElementById('preview-national');
@@ -1980,9 +2218,9 @@ Nguyễn Văn Minh`
             issEl.textContent = issuingBody;
             issEl.style.textTransform = 'none';
 
-            // Tự động cân chỉnh cỡ chữ trong khoảng 11pt - 12pt nếu tên Sở/Trường dài để tuyệt đối không bị rớt dòng trên khổ A4
+            // Tự động tính cỡ chữ tối ưu (11pt khi dài >= 28 ký tự như "SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG") để tuyệt đối nằm trên 1 dòng
             const maxAgencyLen = Math.max(governingBody.length, issuingBody.length);
-            const agencyFontSize = maxAgencyLen > 32 ? '11pt' : (maxAgencyLen > 28 ? '11.5pt' : '12pt');
+            const agencyFontSize = maxAgencyLen >= 30 ? '11pt' : (maxAgencyLen >= 26 ? '11.5pt' : '12pt');
             govEl.style.fontSize = agencyFontSize;
             issEl.parentElement.style.fontSize = agencyFontSize;
 
@@ -2031,7 +2269,6 @@ Nguyễn Văn Minh`
                 p.style.textIndent = '10mm'; // Lùi đầu dòng chuẩn 1cm
                 p.style.marginTop = '0';
                 p.style.marginBottom = '4pt';
-                // Nếu dòng bắt đầu bằng Kính gửi thì in đậm phần Kính gửi:
                 if (line.toLowerCase().startsWith('kính gửi:')) {
                     const afterColon = line.substring(9).trim();
                     p.style.fontStyle = 'normal';
@@ -2043,33 +2280,9 @@ Nguyễn Văn Minh`
                 basesContainer.appendChild(p);
             });
 
-            // 6. Render Nội dung chính (Lùi đầu dòng 10mm, các mục I, II, Điều 1 in đậm)
+            // 6. Render Nội dung chính (Hỗ trợ cả đoạn văn lùi đầu dòng 10mm VÀ Bảng biểu có khung viền chuẩn)
             const bodyContainer = document.getElementById('preview-body-block');
-            bodyContainer.innerHTML = '';
-            const bodyLines = docBody.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-            bodyLines.forEach(line => {
-                const p = document.createElement('p');
-                p.style.textIndent = '10mm';
-                p.style.marginTop = '0';
-                p.style.marginBottom = '6pt';
-
-                // Nhận diện tiêu đề mục lớn (I., II., III.) hoặc Điều khoản (Điều 1., Điều 2.)
-                if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X)\.\s+/i.test(line)) {
-                    p.style.fontWeight = 'bold';
-                    p.style.textIndent = '0';
-                    p.textContent = line;
-                } else if (/^Điều\s+\d+[\.:]/i.test(line)) {
-                    const match = line.match(/^(Điều\s+\d+[\.:])\s*(.*)/i);
-                    if (match) {
-                        p.innerHTML = `<b>${escapeHtml(match[1])}</b> ${escapeHtml(match[2])}`;
-                    } else {
-                        p.textContent = line;
-                    }
-                } else {
-                    p.textContent = line;
-                }
-                bodyContainer.appendChild(p);
-            });
+            bodyContainer.innerHTML = renderBodyWithTablesHTML(docBody);
 
             // 7. Render Nơi nhận
             const recListContainer = document.getElementById('preview-recipients-list');
@@ -2104,27 +2317,93 @@ Nguyễn Văn Minh`
             runFormatValidator();
         }
 
-        // Đo chiều rộng thực tế của chữ để vẽ đường kẻ ngang dạng Shape (Vector Line) chính xác theo NĐ 30/2020/NĐ-CP
+        // Hàm dựng HTML cho phần Nội dung chính: Tự động biến các dòng có dấu "|" thành Bảng biểu <table> chuẩn hành chính
+        function renderBodyWithTablesHTML(docBodyText) {
+            const rawLines = docBodyText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const lines = autoReconstructBrokenScheduleLines(rawLines);
+
+            let html = '';
+            let i = 0;
+
+            while (i < lines.length) {
+                const line = lines[i];
+
+                // Kiểm tra nếu dòng chứa dấu "|" ngăn cách cột của bảng
+                if (line.includes('|')) {
+                    const tableRows = [];
+                    while (i < lines.length && lines[i].includes('|')) {
+                        const cols = lines[i].split('|').map(c => c.trim());
+                        tableRows.push(cols);
+                        i++;
+                    }
+
+                    if (tableRows.length > 0) {
+                        html += `<table style="width: 100%; border-collapse: collapse; border: 1px solid #000000; margin: 8pt 0 10pt 0; font-size: 12pt; line-height: 1.3;">`;
+                        tableRows.forEach((cols, rIdx) => {
+                            const isHeader = rIdx === 0;
+                            html += `<tr>`;
+                            cols.forEach((colText, cIdx) => {
+                                // Căn chỉnh độ rộng hợp lý cho bảng 5 cột (Tuần | Thời gian | Nội dung | Phụ trách | Phối hợp)
+                                let colWidthStyle = '';
+                                let alignStyle = isHeader ? 'center' : (cIdx <= 1 ? 'center' : 'left');
+                                if (cols.length === 5) {
+                                    const widths = ['8%', '18%', '44%', '14%', '16%'];
+                                    colWidthStyle = `width: ${widths[cIdx]};`;
+                                }
+                                const tag = isHeader ? 'th' : 'td';
+                                const fontWeight = isHeader ? 'bold' : 'normal';
+                                const bg = isHeader ? 'background-color: #f8fafc;' : '';
+                                html += `<${tag} style="${colWidthStyle} border: 1px solid #000000; padding: 4pt 5pt; text-align: ${alignStyle}; vertical-align: top; font-weight: ${fontWeight}; ${bg}">${escapeHtml(colText)}</${tag}>`;
+                            });
+                            html += `</tr>`;
+                        });
+                        html += `</table>`;
+                    }
+                    continue;
+                }
+
+                // Đoạn văn bản thông thường
+                if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X)\.\s+/i.test(line)) {
+                    html += `<p style="text-indent: 0mm; margin-top: 4pt; margin-bottom: 6pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
+                } else if (/^\d+\.\s+[^\d]/i.test(line) && line.length < 95 && !line.endsWith('.') && !line.endsWith(';')) {
+                    // Các tiểu mục ngắn như "1. Mục đích", "2. Yêu cầu" -> in đậm nhẹ
+                    html += `<p style="text-indent: 10mm; margin-top: 2pt; margin-bottom: 4pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
+                } else if (/^Điều\s+\d+[\.:]/i.test(line)) {
+                    const match = line.match(/^(Điều\s+\d+[\.:])\s*(.*)/i);
+                    if (match) {
+                        html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><b>${escapeHtml(match[1])}</b> ${escapeHtml(match[2])}</p>`;
+                    } else {
+                        html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;">${escapeHtml(line)}</p>`;
+                    }
+                } else {
+                    html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;">${escapeHtml(line)}</p>`;
+                }
+
+                i++;
+            }
+
+            return html;
+        }
+
+        // Đồng bộ độ dài đường kẻ Shape giữa thanh trượt (đơn vị pt của Word) và SVG trên màn hình (1pt = 1.333px)
         function updateHeaderShapeLines() {
-            const issEl = document.getElementById('preview-issuing');
-            const mottoEl = document.getElementById('preview-motto');
+            const issPtInput = document.getElementById('issuingShapePt');
+            const mottoPtInput = document.getElementById('mottoShapePt');
 
-            // 1. Shape Line dưới tên Cơ quan ban hành: Độ dài chuẩn bằng 42% (nằm giữa 1/3 và 1/2) độ dài dòng chữ
-            if (issEl) {
-                const issTextWidth = issEl.getBoundingClientRect().width / (currentZoom || 1);
-                const shapeIssWidth = Math.max(56, Math.round((issTextWidth || 210) * 0.42));
-                setSvgShapeLineWidth('shape-svg-issuing', shapeIssWidth);
-            }
+            const issPt = issPtInput ? parseInt(issPtInput.value, 10) : 62;
+            const mottoPt = mottoPtInput ? parseInt(mottoPtInput.value, 10) : 136;
 
-            // 2. Shape Line dưới Tiêu ngữ: Độ dài chuẩn bằng đúng 100% độ dài dòng chữ "Độc lập - Tự do - Hạnh phúc"
-            if (mottoEl) {
-                const mottoTextWidth = mottoEl.getBoundingClientRect().width / (currentZoom || 1);
-                const shapeMottoWidth = Math.max(120, Math.round(mottoTextWidth || 168));
-                setSvgShapeLineWidth('shape-svg-motto', shapeMottoWidth);
-            }
+            const issMm = Math.round(issPt * 0.3528);
+            const mottoMm = Math.round(mottoPt * 0.3528);
 
-            // 3. Shape Line dưới Trích yếu: Độ dài khoảng 1/3 đến 1/2
-            setSvgShapeLineWidth('shape-svg-subject', 135);
+            const lblIss = document.getElementById('label-issuing-shape-pt');
+            const lblMotto = document.getElementById('label-motto-shape-pt');
+            if (lblIss) lblIss.textContent = `${issPt}pt (~${issMm}mm)`;
+            if (lblMotto) lblMotto.textContent = `${mottoPt}pt (~${mottoMm}mm)`;
+
+            setSvgShapeLineWidth('shape-svg-issuing', Math.round(issPt * 1.333));
+            setSvgShapeLineWidth('shape-svg-motto', Math.round(mottoPt * 1.333));
+            setSvgShapeLineWidth('shape-svg-subject', Math.round(96 * 1.333));
         }
 
         function setSvgShapeLineWidth(svgId, widthPx) {
@@ -2577,128 +2856,237 @@ Nguyễn Văn Minh`
             document.getElementById('zoom-label').textContent = Math.round(currentZoom * 100) + '%';
         }
 
-        // Xuất file Word (.doc) giữ nguyên 1 dòng tên Sở/Trường và dùng đối tượng VML Shape Line (<v:line>) chuẩn Microsoft Word
-        function exportToWord() {
-            // Tạo bản sao nội dung sạch (loại bỏ các thẻ badge chú thích cỡ chữ)
-            const clone = document.getElementById('word-export-area').cloneNode(true);
-            clone.querySelectorAll('.doc-element-badge, .no-print').forEach(el => el.remove());
-
-            // Tính toán độ dài thực tế theo đơn vị pt cho các đối tượng VML Shape Line trong Word
-            const svgIss = document.getElementById('shape-svg-issuing');
-            const svgMotto = document.getElementById('shape-svg-motto');
-            const issWidthPt = svgIss ? Math.round((parseFloat(svgIss.getAttribute('width')) || 88) * 0.75) : 68;
-            const mottoWidthPt = svgMotto ? Math.round((parseFloat(svgMotto.getAttribute('width')) || 166) * 0.75) : 126;
-
-            // Thay thế các SVG Shape trên web bằng đối tượng Drawing Shape <v:line> chuẩn của Microsoft Word
-            const cloneSvgIss = clone.querySelector('#shape-svg-issuing');
-            if (cloneSvgIss && cloneSvgIss.parentElement) {
-                cloneSvgIss.parentElement.outerHTML = `
-                    <div style="text-align: center; margin-top: 2pt; margin-bottom: 4pt;">
-                        <!--[if gte vml 1]>
-                        <v:line from="0,0" to="${issWidthPt}pt,0" strokeweight="0.75pt" strokecolor="black" style="position:relative;mso-wrap-style:square;mso-position-horizontal:center">
-                            <v:stroke endcap="square"/>
-                        </v:line>
-                        <![endif]-->
-                        <!--[if !vml]-->
-                        <hr style="width: ${issWidthPt}pt; border: none; border-top: 1px solid #000; margin: 2pt auto;" />
-                        <!--[endif]-->
-                    </div>
-                `;
-            }
-
-            const cloneSvgMotto = clone.querySelector('#shape-svg-motto');
-            if (cloneSvgMotto && cloneSvgMotto.parentElement) {
-                cloneSvgMotto.parentElement.outerHTML = `
-                    <div style="text-align: center; margin-top: 2pt; margin-bottom: 4pt;">
-                        <!--[if gte vml 1]>
-                        <v:line from="0,0" to="${mottoWidthPt}pt,0" strokeweight="0.75pt" strokecolor="black" style="position:relative;mso-wrap-style:square;mso-position-horizontal:center">
-                            <v:stroke endcap="square"/>
-                        </v:line>
-                        <![endif]-->
-                        <!--[if !vml]-->
-                        <hr style="width: ${mottoWidthPt}pt; border: none; border-top: 1px solid #000; margin: 2pt auto;" />
-                        <!--[endif]-->
-                    </div>
-                `;
-            }
-
-            const cloneSvgSubj = clone.querySelector('#shape-svg-subject');
-            if (cloneSvgSubj && cloneSvgSubj.parentElement) {
-                cloneSvgSubj.parentElement.outerHTML = `
-                    <div style="text-align: center; margin-top: 3pt; margin-bottom: 4pt;">
-                        <!--[if gte vml 1]>
-                        <v:line from="0,0" to="100pt,0" strokeweight="0.75pt" strokecolor="black" style="position:relative;mso-wrap-style:square;mso-position-horizontal:center">
-                            <v:stroke endcap="square"/>
-                        </v:line>
-                        <![endif]-->
-                        <!--[if !vml]-->
-                        <hr style="width: 100pt; border: none; border-top: 1px solid #000; margin: 3pt auto;" />
-                        <!--[endif]-->
-                    </div>
-                `;
-            }
-
-            const wordHtml = `
-                <html xmlns:v='urn:schemas-microsoft-com:vml'
-                      xmlns:o='urn:schemas-microsoft-com:office:office' 
-                      xmlns:w='urn:schemas-microsoft-com:office:word' 
-                      xmlns='http://www.w3.org/TR/REC-html40'>
-                <head>
-                    <meta charset="utf-8">
-                    <title>Van_Ban_Hanh_Chinh_Chuan_ND30</title>
-                    <!--[if gte mso 9]>
-                    <xml>
-                        <o:OfficeDocumentSettings>
-                            <o:AllowPNG/>
-                        </o:OfficeDocumentSettings>
-                        <w:WordDocument>
-                            <w:View>Print</w:View>
-                            <w:Zoom>100</w:Zoom>
-                            <w:DoNotOptimizeForBrowser/>
-                        </w:WordDocument>
-                    </xml>
+        // Helper tạo đối tượng Đường kẻ ngang VML Shape (<v:line>) chuẩn Microsoft Word + Fallback bảng cho LibreOffice/Google Docs
+        function buildWordVmlShapeLine(widthPt, idName) {
+            return `
+                <div align="center" style="text-align: center; margin-top: 2pt; margin-bottom: 4pt; line-height: 4pt; mso-line-height-rule: exactly;">
+                    <!--[if gte vml 1]>
+                    <v:line id="${idName}" from="0,0" to="${widthPt}pt,0" strokecolor="#000000" strokeweight="0.75pt" style="position:relative; width:${widthPt}pt; height:0.75pt; mso-position-horizontal:center; mso-wrap-style:square;">
+                        <v:stroke linestyle="single" endcap="square"/>
+                    </v:line>
                     <![endif]-->
-                    <style>
-                        v\\:* { behavior: url(#default#VML); display: inline-block; }
-                        o\\:* { behavior: url(#default#VML); }
-                        @page WordSection1 {
-                            size: 210mm 297mm;
-                            margin: 20mm 15mm 20mm 30mm;
-                            mso-header-margin: 10mm;
-                            mso-footer-margin: 10mm;
-                            mso-paper-source: 0;
-                        }
-                        div.WordSection1 {
-                            page: WordSection1;
-                        }
-                        body {
-                            font-family: "Times New Roman", Times, serif;
-                            font-size: 14pt;
-                            color: #000000;
-                            line-height: 1.35;
-                        }
-                        table {
-                            width: 100%;
-                            border-collapse: collapse;
-                            border: none;
-                        }
-                        td {
-                            mso-line-height-rule: exactly;
-                        }
-                        p {
-                            margin-top: 0pt;
-                            margin-bottom: 6pt;
-                            text-align: justify;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="WordSection1">
-                        ${clone.innerHTML}
-                    </div>
-                </body>
-                </html>
+                    <!--[if !vml]-->
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: ${widthPt}pt; border-collapse: collapse; margin: 0 auto;">
+                        <tr>
+                            <td style="border-bottom: 1pt solid #000000; height: 1pt; font-size: 1pt; line-height: 1pt;">&nbsp;</td>
+                        </tr>
+                    </table>
+                    <!--[endif]-->
+                </div>
             `;
+        }
+
+        // =========================================================================
+        // BỘ TẠO MÃ WORD CHUYÊN BIỆT (DEDICATED MICROSOFT WORD VML & FIXED-LAYOUT GENERATOR)
+        // Đảm bảo 100%:
+        // 1. Sở GD&ĐT và Trường mỗi mục nằm trên 1 dòng đơn tuyệt đối (không bao giờ rớt chữ GIANG / THUẬN).
+        // 2. Đường gạch dưới là đối tượng VML Shape (<v:line>) thực thụ trong Word.
+        // 3. Toàn bộ bảng biểu 35 tuần có kẻ khung viền sắc nét.
+        // =========================================================================
+        function exportToWord() {
+            const cat = document.getElementById('docCategory').value;
+            const governingBody = document.getElementById('governingBody').value.replace(/\s+/g, ' ').trim();
+            const issuingBody = document.getElementById('issuingBody').value.replace(/\s+/g, ' ').trim();
+            const docSymbol = document.getElementById('docSymbol').value.trim();
+            const nationalName = document.getElementById('nationalName').value.replace(/\s+/g, ' ').trim();
+            const nationalMotto = document.getElementById('nationalMotto').value.replace(/\s+/g, ' ').trim();
+            const docLocation = document.getElementById('docLocation').value.trim();
+            const docDay = document.getElementById('docDay').value.trim();
+            const docMonth = document.getElementById('docMonth').value.trim();
+            const docYear = document.getElementById('docYear').value.trim();
+            const docTypeTitle = document.getElementById('docTypeTitle').value.trim();
+            const docSubject = document.getElementById('docSubject').value.trim();
+            const decisionAuthority = document.getElementById('decisionAuthority').value.trim();
+            const docBases = document.getElementById('docBases').value.trim();
+            const docBody = document.getElementById('docBody').value.trim();
+            const docRecipients = document.getElementById('docRecipients').value.trim();
+            const signAuthPrefix = document.getElementById('signAuthPrefix').value.trim();
+            const signPosition = document.getElementById('signPosition').value.trim();
+            const signerName = document.getElementById('signerName').value.trim();
+            const approvalTitle = document.getElementById('approvalTitle').value.trim();
+
+            // Lấy thông số độ dài Shape (pt)
+            const issPtInput = document.getElementById('issuingShapePt');
+            const mottoPtInput = document.getElementById('mottoShapePt');
+            const issWidthPt = issPtInput ? parseInt(issPtInput.value, 10) : 62;
+            const mottoWidthPt = mottoPtInput ? parseInt(mottoPtInput.value, 10) : 136;
+
+            // Tính toán cỡ chữ cho cột trái trong Word để chuỗi "SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG" luôn nằm gọn trên 1 dòng
+            const maxLeftLen = Math.max(governingBody.length, issuingBody.length);
+            const wordLeftFontSize = maxLeftLen >= 30 ? '11.0pt' : (maxLeftLen >= 26 ? '11.5pt' : '12.0pt');
+            const wordLeftLetterSpacing = maxLeftLen >= 30 ? '-0.2pt' : '0pt';
+
+            // 1. Dựng HTML phần Căn cứ pháp lý cho Word
+            const baseLines = docBases.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            let wordBasesHtml = '';
+            baseLines.forEach(line => {
+                if (line.toLowerCase().startsWith('kính gửi:')) {
+                    const afterColon = line.substring(9).trim();
+                    wordBasesHtml += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 4pt; font-size: 14pt; text-align: justify;"><b>Kính gửi:</b> ${escapeHtml(afterColon)}</p>`;
+                } else {
+                    wordBasesHtml += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 4pt; font-size: 14pt; font-style: italic; text-align: justify;">${escapeHtml(line)}</p>`;
+                }
+            });
+
+            // 2. Dựng HTML phần Nội dung chính (kèm bảng biểu) cho Word
+            const wordBodyHtml = renderBodyWithTablesHTML(docBody);
+
+            // 3. Dựng HTML phần Nơi nhận cho Word
+            const recLines = docRecipients.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const wordRecipientsHtml = recLines.map(l => `<p style="margin: 0pt 0pt 1.5pt 0pt; font-size: 11pt; line-height: 1.25; text-align: left;">${escapeHtml(l)}</p>`).join('');
+
+            // 4. Dựng HTML tiêu đề Tên loại & Trích yếu
+            let wordTitleBlockHtml = '';
+            if (cat === 'congvan') {
+                wordTitleBlockHtml = `
+                    <div style="text-align: center; margin-top: 10pt; margin-bottom: 10pt;">
+                        <p style="text-align: center; font-size: 13pt; font-weight: bold; margin: 0;">${escapeHtml(docSubject)}</p>
+                    </div>
+                `;
+            } else {
+                wordTitleBlockHtml = `
+                    <div style="text-align: center; margin-top: 14pt; margin-bottom: 12pt;">
+                        <p style="text-align: center; font-size: 14pt; font-weight: bold; margin: 0pt 0pt 2pt 0pt; line-height: 1.3;">${escapeHtml(docTypeTitle)}</p>
+                        <p style="text-align: center; font-size: 14pt; font-weight: bold; margin: 0pt 0pt 3pt 0pt; line-height: 1.3;">${escapeHtml(docSubject)}</p>
+                        ${buildWordVmlShapeLine(96, 'shape_line_subject')}
+                    </div>
+                `;
+            }
+
+            // 5. Khối Quyết định (nếu là Quyết định)
+            const wordDecisionAuthHtml = cat === 'quyetdinh' ? `
+                <p style="text-align: center; font-size: 14pt; font-weight: bold; margin: 12pt 0pt 10pt 0pt;">${escapeHtml(decisionAuthority)}</p>
+            ` : '';
+
+            const wordQuyetDinhWordHtml = cat === 'quyetdinh' ? `
+                <p style="text-align: center; font-size: 14pt; font-weight: bold; margin: 10pt 0pt 10pt 0pt;">QUYẾT ĐỊNH:</p>
+            ` : '';
+
+            const wordApprovalHtml = approvalTitle ? `
+                <div style="margin-top: 10pt; text-align: center;">
+                    <p style="text-align: center; font-size: 13pt; font-weight: bold; margin: 0;">${escapeHtml(approvalTitle)}</p>
+                    <p style="margin: 0; height: 55pt;">&nbsp;</p>
+                </div>
+            ` : '';
+
+            const wordHtml = `<html xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Van_Ban_Chuan_ND30_2020</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:TargetScreenSize>1024x768</o:TargetScreenSize>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+            <w:ValidateAgainstSchemas/>
+            <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+            <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+            <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        v\\:* { behavior: url(#default#VML); display: inline-block; }
+        o\\:* { behavior: url(#default#VML); }
+        w\\:* { behavior: url(#default#VML); }
+        .shape { behavior: url(#default#VML); }
+
+        @page WordSection1 {
+            size: 210.0mm 297.0mm;
+            margin: 20.0mm 15.0mm 20.0mm 30.0mm;
+            mso-header-margin: 10.0mm;
+            mso-footer-margin: 10.0mm;
+            mso-paper-source: 0;
+        }
+        div.WordSection1 {
+            page: WordSection1;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14.0pt;
+            color: #000000;
+            line-height: 1.35;
+        }
+        p {
+            margin-top: 0pt;
+            margin-bottom: 6pt;
+            font-family: "Times New Roman", Times, serif;
+        }
+        table {
+            border-collapse: collapse;
+            font-family: "Times New Roman", Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="WordSection1">
+        <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Cố định 165mm = Cột trái 78mm + Cột phải 87mm, ép chuẩn 1 dòng đơn bằng nowrap) -->
+        <table border="0" cellpadding="0" cellspacing="0" width="623" style="width: 165.0mm; border-collapse: collapse; border: none; table-layout: fixed; margin-bottom: 12pt;">
+            <tr>
+                <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (1 dòng đơn tuyệt đối + VML Shape Line) -->
+                <td width="295" nowrap="nowrap" valign="top" style="width: 78.0mm; padding: 0pt 2pt 0pt 0pt; vertical-align: top; text-align: center; white-space: nowrap; mso-wrap-style: none;">
+                    <p align="center" style="margin: 0pt; font-size: ${wordLeftFontSize}; font-weight: normal; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordLeftLetterSpacing};">${escapeHtml(governingBody)}</p>
+                    <p align="center" style="margin: 1.5pt 0pt 0pt 0pt; font-size: ${wordLeftFontSize}; font-weight: bold; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordLeftLetterSpacing};">${escapeHtml(issuingBody)}</p>
+                    ${buildWordVmlShapeLine(issWidthPt, 'shape_line_issuing')}
+                    <p align="center" style="margin: 4pt 0pt 0pt 0pt; font-size: 13.0pt; font-weight: normal; text-align: center; white-space: nowrap;">${escapeHtml(docSymbol)}</p>
+                </td>
+
+                <!-- Cột phải: Quốc hiệu & Tiêu ngữ (1 dòng đơn tuyệt đối + VML Shape Line) -->
+                <td width="328" nowrap="nowrap" valign="top" style="width: 87.0mm; padding: 0pt 0pt 0pt 2pt; vertical-align: top; text-align: center; white-space: nowrap; mso-wrap-style: none;">
+                    <p align="center" style="margin: 0pt; font-size: 12.0pt; font-weight: bold; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: -0.15pt;">${escapeHtml(nationalName)}</p>
+                    <p align="center" style="margin: 1.5pt 0pt 0pt 0pt; font-size: 13.0pt; font-weight: bold; line-height: 1.25; text-align: center; white-space: nowrap;">${escapeHtml(nationalMotto)}</p>
+                    ${buildWordVmlShapeLine(mottoWidthPt, 'shape_line_motto')}
+                    <p align="center" style="margin: 6pt 0pt 0pt 0pt; font-size: 13.0pt; font-style: italic; text-align: center; white-space: nowrap;">${escapeHtml(docLocation)}, ngày ${escapeHtml(docDay)} tháng ${escapeHtml(docMonth)} năm ${escapeHtml(docYear)}</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- TÊN LOẠI VĂN BẢN & TRÍCH YẾU -->
+        ${wordTitleBlockHtml}
+
+        <!-- THẨM QUYỀN BAN HÀNH (Đối với Quyết định) -->
+        ${wordDecisionAuthHtml}
+
+        <!-- CĂN CỨ BAN HÀNH / KÍNH GỬI -->
+        <div style="margin-bottom: 8pt;">
+            ${wordBasesHtml}
+        </div>
+
+        <!-- CHỮ QUYẾT ĐỊNH: (Đối với Quyết định) -->
+        ${wordQuyetDinhWordHtml}
+
+        <!-- NỘI DUNG VĂN BẢN CHÍNH (Bao gồm cả Bảng biểu kẻ khung chuẩn) -->
+        <div style="font-size: 14.0pt; text-align: justify; line-height: 1.35; margin-bottom: 12pt;">
+            ${wordBodyHtml}
+        </div>
+
+        <!-- BẢNG NƠI NHẬN & CHỮ KÝ CUỐI VĂN BẢN -->
+        <table border="0" cellpadding="0" cellspacing="0" width="623" style="width: 165.0mm; border-collapse: collapse; border: none; table-layout: fixed; margin-top: 12pt; page-break-inside: avoid;">
+            <tr>
+                <td width="311" valign="top" style="width: 82.5mm; vertical-align: top; padding-right: 8pt;">
+                    <p style="margin: 0pt 0pt 2pt 0pt; font-size: 12.0pt; font-weight: bold; font-style: italic; text-align: left;">Nơi nhận:</p>
+                    ${wordRecipientsHtml}
+                    ${wordApprovalHtml}
+                </td>
+                <td width="312" valign="top" style="width: 82.5mm; vertical-align: top; text-align: center;">
+                    ${signAuthPrefix ? `<p align="center" style="margin: 0pt; font-size: 13.0pt; font-weight: bold; text-align: center;">${escapeHtml(signAuthPrefix)}</p>` : ''}
+                    <p align="center" style="margin: 0pt; font-size: 13.0pt; font-weight: bold; text-align: center;">${escapeHtml(signPosition)}</p>
+                    <p align="center" style="margin: 0pt; height: 65pt; line-height: 65pt;">&nbsp;</p>
+                    <p align="center" style="margin: 0pt; font-size: 14.0pt; font-weight: bold; text-align: center;">${escapeHtml(signerName)}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>`;
 
             const blob = new Blob(['\ufeff', wordHtml], {
                 type: 'application/msword;charset=utf-8'
@@ -2717,7 +3105,7 @@ Nguyễn Văn Minh`
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
 
-            showToast('Đã tải xuống file Word (.doc) chuẩn định dạng bảng biểu A4!');
+            showToast('Đã xuất File Word (.doc) chuẩn 1 dòng đơn, tích hợp VML Shape Line và Bảng biểu!');
         }
 
         // Chuyển đổi Tab bên khung trái
