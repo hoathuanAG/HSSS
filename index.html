@@ -234,17 +234,17 @@
             <span>Mẫu chuẩn ngành Giáo dục:</span>
         </div>
         <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5">
-            <button onclick="loadTemplate('kh_tieng_anh')" class="template-btn text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1 shadow-2xs">
+            <button onclick="loadTemplate('kh_kiem_tra_qccm')" class="template-btn text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1 shadow-2xs">
                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
-                1. KH Chương trình bổ trợ Tiếng Anh (Đã sửa chuẩn 1 dòng + Shape + Bảng 35 tuần)
+                1. KH Kiểm tra Quy chế chuyên môn (Số 337 - Chuẩn 12pt Condensed + Đầy đủ mục I, II, 1, 2 đậm)
             </button>
-            <button onclick="loadTemplate('kh_to_cm')" class="template-btn text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
+            <button onclick="loadTemplate('kh_tieng_anh')" class="template-btn text-xs bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-300 font-semibold px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
+                <i data-lucide="calendar-range" class="w-3.5 h-3.5 text-blue-600"></i>
+                2. KH Chương trình bổ trợ Tiếng Anh (Kèm Bảng 35 tuần)
+            </button>
+            <button onclick="loadTemplate('kh_to_cm')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="file-Spreadsheet" class="w-3.5 h-3.5 text-blue-600"></i>
-                2. Kế hoạch Tổ chuyên môn (Vật lý - CN)
-            </button>
-            <button onclick="loadTemplate('kh_khkt')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
-                <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-600"></i>
-                3. Kế hoạch Bồi dưỡng HSG / Thi KHKT
+                3. Kế hoạch Tổ chuyên môn (Vật lý - CN)
             </button>
             <button onclick="loadTemplate('qd_thanh_lap')" class="template-btn text-xs bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 font-medium px-2.5 py-1.5 rounded-md whitespace-nowrap transition flex items-center gap-1">
                 <i data-lucide="stamp" class="w-3.5 h-3.5 text-rose-600"></i>
@@ -419,19 +419,26 @@
                         </div>
                     </div>
 
-                    <!-- Thanh tinh chỉnh độ dài đường kẻ Shape trực tiếp cho Word -->
-                    <div class="pt-2 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-white p-2.5 rounded-lg border border-blue-100">
+                    <!-- Thanh tinh chỉnh Spacing: Condensed (pt) & Độ dài đường kẻ Shape trực tiếp cho Word -->
+                    <div class="pt-2 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-3 gap-2.5 bg-white p-2.5 rounded-lg border border-blue-100">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-semibold text-slate-700 mb-1" title="Giữ nguyên cỡ chữ 12pt chuẩn NĐ 30/2020 và dùng Spacing: Condensed của Word để ép gọn 1 dòng">
+                                <span>Spacing Condensed (12pt):</span>
+                                <span id="label-condensed-pt" class="text-emerald-700 font-mono font-bold">-0.4pt</span>
+                            </div>
+                            <input type="range" id="condensedSpacingPt" min="0" max="10" step="1" value="4" oninput="syncDocument()" class="w-full accent-emerald-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+                        </div>
                         <div>
                             <div class="flex justify-between text-[10px] font-semibold text-slate-600 mb-1">
-                                <span>Độ dài Shape dưới tên Trường:</span>
-                                <span id="label-issuing-shape-pt" class="text-blue-700 font-mono">62pt (~22mm)</span>
+                                <span>Shape dưới Trường:</span>
+                                <span id="label-issuing-shape-pt" class="text-blue-700 font-mono">62pt</span>
                             </div>
                             <input type="range" id="issuingShapePt" min="45" max="95" value="62" oninput="syncDocument()" class="w-full accent-blue-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer">
                         </div>
                         <div>
                             <div class="flex justify-between text-[10px] font-semibold text-slate-600 mb-1">
-                                <span>Độ dài Shape dưới Tiêu ngữ:</span>
-                                <span id="label-motto-shape-pt" class="text-blue-700 font-mono">136pt (~48mm)</span>
+                                <span>Shape dưới Tiêu ngữ:</span>
+                                <span id="label-motto-shape-pt" class="text-blue-700 font-mono">136pt</span>
                             </div>
                             <input type="range" id="mottoShapePt" min="110" max="165" value="136" oninput="syncDocument()" class="w-full accent-blue-600 h-1.5 bg-slate-200 rounded-lg cursor-pointer">
                         </div>
@@ -498,10 +505,15 @@
 
                     <div>
                         <div class="flex items-center justify-between mb-1">
-                            <label class="block text-[11px] font-semibold text-slate-700" id="label-body">Nội dung chính (Tự động giữ nguyên & phục hồi Bảng biểu)</label>
-                            <button type="button" onclick="reconstructBrokenTableInBody(true)" class="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold px-2 py-0.5 rounded transition flex items-center gap-1" title="Nếu nội dung có bảng Lộ trình bị vỡ thành nhiều dòng rời rạc, bấm để đóng khung lại thành Bảng chuẩn">
-                                <i data-lucide="table-2" class="w-3 h-3"></i> Khôi phục Bảng biểu
-                            </button>
+                            <label class="block text-[11px] font-semibold text-slate-700" id="label-body">Nội dung chính (Tự động đánh số mục I, II, 1, 2, a, b & in đậm)</label>
+                            <div class="flex items-center gap-1">
+                                <button type="button" onclick="autoStructureAndFormatBody(true)" class="text-[10px] bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-semibold px-2 py-0.5 rounded transition flex items-center gap-1" title="Tự động bổ sung số La Mã (I, II, III), số Ả Rập (1, 2) cho các đề mục bị mất số và chuẩn hóa in đậm">
+                                    <i data-lucide="list-ordered" class="w-3 h-3"></i> Đánh số mục & Làm đẹp
+                                </button>
+                                <button type="button" onclick="reconstructBrokenTableInBody(true)" class="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold px-2 py-0.5 rounded transition flex items-center gap-1" title="Nếu nội dung có bảng Lộ trình bị vỡ thành nhiều dòng rời rạc, bấm để đóng khung lại thành Bảng chuẩn">
+                                    <i data-lucide="table-2" class="w-3 h-3"></i> Khôi phục Bảng
+                                </button>
+                            </div>
                         </div>
                         <textarea id="docBody" rows="9" oninput="syncDocument()" class="w-full text-xs border border-slate-300 rounded-lg px-2.5 py-2 leading-relaxed focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Nhập các mục I, II, III hoặc Điều 1, Điều 2, Điều 3..."></textarea>
                     </div>
@@ -610,17 +622,17 @@
                 <!-- NỘI DUNG VĂN BẢN TRÊN KHUNG PREVIEW A4 -->
                 <div id="word-export-area">
                     
-                    <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Khóa kích thước chuẩn 165mm: Cột trái 78mm - Cột phải 87mm, ép 1 dòng tuyệt đối) -->
+                    <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Khóa kích thước chuẩn 165mm: Cột trái 78mm - Cột phải 87mm, giữ đúng cỡ 12pt + Spacing: Condensed) -->
                     <table style="width: 165mm; border-collapse: collapse; border: none; margin-bottom: 14pt; table-layout: fixed;">
                         <tr>
-                            <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (Ô số 2) - Ép chuẩn 1 dòng đơn mỗi nội dung -->
+                            <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (Ô số 2) - Cỡ chữ chuẩn 12pt + Spacing Condensed -->
                             <td class="guide-box-highlight" nowrap="nowrap" style="width: 78mm; vertical-align: top; text-align: center; padding: 0 2pt 0 0; white-space: nowrap; overflow: visible;">
-                                <div id="preview-governing" style="font-size: 11pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.15pt;">
+                                <div id="preview-governing" style="font-size: 12pt; font-weight: normal; text-transform: uppercase; line-height: 1.3; white-space: nowrap; letter-spacing: -0.4pt;">
                                     SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG
                                 </div>
-                                <div style="font-size: 11pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap; letter-spacing: -0.1pt;">
+                                <div style="font-size: 12pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 1.5pt; white-space: nowrap; letter-spacing: -0.4pt;">
                                     <span id="preview-issuing" style="display: inline-block; white-space: nowrap;">TRƯỜNG THCS&THPT HÒA THUẬN</span>
-                                    <span class="doc-element-badge">11-12pt Đậm (1 dòng)</span>
+                                    <span class="doc-element-badge">12pt Đậm (Condensed)</span>
                                 </div>
                                 <!-- Đường kẻ ngang định dạng Shape dưới tên cơ quan ban hành (1/3 đến 1/2 độ dài dòng chữ) -->
                                 <div class="doc-shape-line-wrapper" title="Đối tượng Word VML Shape Line (<v:line>) dưới tên Trường">
@@ -978,9 +990,70 @@
 
     <script>
         // =========================================================================
-        // KHO DỮ LIỆU MẪU CHUẨN NGÀNH GIÁO DỤC (BAO GỒM FILE KẾ HOẠCH TIẾNG ANH 35 TUẦN CỦA THẦY ĐÃ ĐƯỢC CHUẨN HÓA)
+        // KHO DỮ LIỆU MẪU CHUẨN NGÀNH GIÁO DỤC (BAO GỒM FILE KẾ HOẠCH 337 & KẾ HOẠCH TIẾNG ANH 35 TUẦN CỦA THẦY ĐÃ ĐƯỢC CHUẨN HÓA)
         // =========================================================================
         const TEMPLATES = {
+            kh_kiem_tra_qccm: {
+                docCategory: 'kehoach',
+                governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
+                issuingBody: 'TRƯỜNG THCS&THPT HÒA THUẬN',
+                docSymbol: 'Số: 337/KH-THCS&THPT',
+                nationalName: 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM',
+                nationalMotto: 'Độc lập - Tự do - Hạnh phúc',
+                docLocation: 'Hòa Thuận',
+                docDay: '15',
+                docMonth: '10',
+                docYear: '2026',
+                docTypeTitle: 'KẾ HOẠCH',
+                docSubject: 'Kiểm tra việc thực hiện Quy chế chuyên môn của giáo viên học kỳ I năm học 2026 - 2027',
+                decisionAuthority: '',
+                docBases: `Căn cứ Thông tư số 22/2021/TT-BGDĐT ngày 20/7/2021 của Bộ trưởng Bộ Giáo dục và Đào tạo (GDĐT) Quy định về đánh giá học sinh trung học cơ sở và học sinh trung học phổ thông (THPT);
+Căn cứ Thông tư số 15/2026/TT-BGDĐT ngày 24/03/2026 của Bộ trưởng Bộ Giáo dục và Đào tạo ban hành Điều lệ trường tiểu học, trường trung học cơ sở, trường trung học phổ thông và trường phổ thông có nhiều cấp học;
+Căn cứ Công văn số 7637/SGDĐT-GDPT ngày 09/10/2026 của Sở Giáo dục và Đào tạo An Giang về việc thực hiện hồ sơ quản lý hoạt động giáo dục trong hệ thống nhà trường từ năm học 2026 - 2027.`,
+                docBody: `Trường THCS&THPT Hòa Thuận xây dựng Kế hoạch kiểm tra việc thực hiện Quy chế chuyên môn của giáo viên học kỳ I năm học 2026 - 2027, cụ thể như sau:
+I. MỤC ĐÍCH, YÊU CẦU
+1. Mục đích
+Kiểm tra việc thực hiện Quy chế chuyên môn của giáo viên nhằm đánh giá mức độ hoàn thành nhiệm vụ của giáo viên. Qua đó, phát huy những ưu điểm và kịp thời khắc phục những hạn chế, khuyết điểm.
+2. Yêu cầu
+Các thành viên khi thực hiện nhiệm vụ phải khách quan, công bằng; thực hiện đầy đủ các nội dung yêu cầu kiểm tra; định hướng khắc phục những hạn chế, khuyết điểm. Sau đợt kiểm tra phải báo cáo kết quả về bộ phận chuyên môn theo quy định.
+II. NHIỆM VỤ TRỌNG TÂM
+1. Tăng cường công tác kiểm tra việc soạn giảng theo hướng phát triển phẩm chất, năng lực của người học nhằm giúp giáo viên triển khai việc dạy và học theo Chương trình giáo dục phổ thông năm 2018.
+2. Kiểm tra việc thực hiện Quy chế chuyên môn trong giáo viên, đẩy mạnh việc tích cực ứng dụng công nghệ thông tin trong dạy và học.
+3. Kiểm tra các thông tin của học sinh trên hệ thống vnEdu và hồ sơ bản giấy của học sinh.
+4. Kiểm tra các Kế hoạch của giáo viên và tiến độ nhập điểm của giáo viên trên hệ thống vnEdu.
+5. Đội ngũ làm công tác kiểm tra phải nêu cao tinh thần trách nhiệm, kiểm tra công tâm, khách quan; chỉ ra được các mặt hạn chế trong việc thực hiện nhiệm vụ.
+III. NỘI DUNG CỤ THỂ, THỜI GIAN KIỂM TRA
+1. Nội dung kiểm tra
+a) Đối với Tổ trưởng chuyên môn: Sổ ghi chép nội dung sinh hoạt của tổ chuyên môn (bản giấy); Kế hoạch bài dạy (trên vnEdu); Điểm số trên vnEdu.
+b) Đối với giáo viên: Kế hoạch bài dạy trên vnEdu; Thực hiện dạy bù; Tiến độ vào điểm; Cập nhật ngày nghỉ học sinh lớp chủ nhiệm, Sổ chủ nhiệm (đối với giáo viên chủ nhiệm) trên vnEdu.
+c) Ngoài các nội dung trên, giáo viên chủ nhiệm các khối được kiểm tra các thông tin học sinh trên hệ thống vnEdu.
+2. Thời gian kiểm tra: Chia làm 03 đợt
+a) Đợt 1: Từ ngày 19/10/2026 đến ngày 23/10/2026.
+- Ông Nguyễn Chí Tâm: Trực tiếp kiểm tra việc cập nhật ngày nghỉ của học sinh (đối với giáo viên chủ nhiệm); kiểm tra việc thực hiện Quy chế chuyên môn của Tổ trưởng, việc dạy phụ đạo và các lớp ôn tập khối 12.
+- Đối với Tổ trưởng chuyên môn: Trực tiếp kiểm tra các thành viên của tổ.
+- Cô Lê Thị Trúc: Kiểm tra các thông tin của học sinh trên hệ thống vnEdu.
+b) Đợt 2: Từ ngày 23/11/2026 đến ngày 27/11/2026.
+- Ông Nguyễn Chí Tâm: Trực tiếp kiểm tra việc cập nhật ngày nghỉ của học sinh (đối với giáo viên chủ nhiệm); kiểm tra việc thực hiện Quy chế chuyên môn của Tổ trưởng, việc dạy phụ đạo và các lớp ôn tập khối 12.
+- Đối với Tổ trưởng chuyên môn: Trực tiếp kiểm tra các thành viên của tổ.
+c) Đợt 3: Từ ngày 21/12/2026 đến ngày 25/12/2026.
+- Ông Nguyễn Chí Tâm: Trực tiếp kiểm tra việc cập nhật ngày nghỉ của học sinh (đối với giáo viên chủ nhiệm); kiểm tra việc thực hiện Quy chế chuyên môn của Tổ trưởng, việc dạy phụ đạo và các lớp ôn tập khối 12.
+- Đối với Tổ trưởng chuyên môn: Trực tiếp kiểm tra các thành viên của tổ.
+IV. TỔ CHỨC THỰC HIỆN
+1. Lãnh đạo nhà trường
+Xây dựng Kế hoạch, triển khai đến tất cả giáo viên trong nhà trường thực hiện; báo cáo về Sở Giáo dục và Đào tạo (khi có yêu cầu). Ngoài các nội dung kiểm tra trên, bộ phận chuyên môn sẽ kiểm tra các nội dung khác khi cần thiết.
+2. Các tổ chuyên môn
+Căn cứ Kế hoạch này, Tổ trưởng chuyên môn hoặc Tổ phó tổ chức triển khai đến giáo viên trong tổ mình để sắp xếp thời gian thực hiện đúng tiến độ công việc. Sau 02 ngày hoàn thành kiểm tra, báo cáo kết quả về Ông Nguyễn Chí Tâm để tổng hợp, đề ra hướng xử lý, khắc phục (nếu có).
+Trên đây là Kế hoạch kiểm tra việc thực hiện Quy chế chuyên môn của giáo viên học kỳ I năm học 2026 - 2027. Trong quá trình thực hiện nếu có vướng mắc sẽ điều chỉnh cho phù hợp./.`,
+                docRecipients: `- Lãnh đạo nhà trường (theo dõi, kiểm tra);
+- Các Tổ trưởng (thực hiện);
+- Giáo viên (thực hiện);
+- Lưu: VT.`,
+                signAuthPrefix: 'KT. HIỆU TRƯỞNG',
+                signPosition: 'PHÓ HIỆU TRƯỞNG',
+                signerName: 'Nguyễn Chí Tâm',
+                approvalTitle: ''
+            },
+
             kh_tieng_anh: {
                 docCategory: 'kehoach',
                 governingBody: 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG',
@@ -1377,7 +1450,7 @@ Nguyễn Văn Minh`
         // =========================================================================
         window.onload = function() {
             lucide.createIcons();
-            loadTemplate('kh_tieng_anh');
+            loadTemplate('kh_kiem_tra_qccm');
             setupDragAndDropZone();
         };
 
@@ -1496,24 +1569,88 @@ Nguyễn Văn Minh`
             }
         }
 
-        // Chuyển đổi HTML có chứa bảng <table> (từ .docx hoặc .doc) thành định dạng dòng có dấu "|" để bảo toàn 100% bảng biểu
+        // Chuyển đổi số 1, 2, 3... sang số La Mã I, II, III...
+        function toRomanNumeral(num) {
+            const map = [
+                [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+            ];
+            let res = '';
+            let n = num;
+            for (const [val, sym] of map) {
+                while (n >= val) {
+                    res += sym;
+                    n -= val;
+                }
+            }
+            return res || 'I';
+        }
+
+        // Chuyển đổi HTML từ .docx (Mammoth) hoặc .doc sang văn bản:
+        // ĐẶC BIỆT: Bảo toàn 100% danh sách tự động (<ol>/<ul>/<li>) của Word thành I., II., 1., 2., a), b) và bảo toàn Bảng biểu <table>
         function convertHtmlTablesToPipeLines(htmlString) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlString, 'text/html');
 
-            // Bỏ qua bảng tiêu đề đầu văn bản (chứa CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM) và bảng chữ ký cuối văn bản (chứa Nơi nhận:)
+            // 1. Khôi phục số thứ tự của các thẻ <ol> / <ul> bị Word ẩn trong Auto-Numbering trước khi lấy text
+            const processListElement = (listEl, depth = 0) => {
+                const isOrdered = listEl.tagName.toLowerCase() === 'ol';
+                let counter = parseInt(listEl.getAttribute('start') || '1', 10);
+
+                Array.from(listEl.children).forEach(child => {
+                    if (child.tagName && child.tagName.toLowerCase() === 'li') {
+                        // Xử lý danh sách con bên trong <li> trước (nếu có)
+                        Array.from(child.children).forEach(sub => {
+                            const tag = sub.tagName ? sub.tagName.toLowerCase() : '';
+                            if (tag === 'ol' || tag === 'ul') {
+                                processListElement(sub, depth + 1);
+                            }
+                        });
+
+                        // Lấy nội dung chữ trực tiếp của dòng <li>
+                        const rawLiText = (child.textContent || '').replace(/\s+/g, ' ').trim();
+                        const alreadyHasPrefix = /^([IVX]+\.|[0-9]+\.|[a-zđ]\)|[-–•+])\s+/i.test(rawLiText);
+
+                        if (rawLiText && !alreadyHasPrefix) {
+                            let prefix = '';
+                            const isAllCapsHeading = (rawLiText === rawLiText.toUpperCase()) && rawLiText.length >= 4 && /[A-ZĐƯƠĂÂÊÔ]/.test(rawLiText);
+
+                            if (isOrdered) {
+                                if (depth === 0 && isAllCapsHeading) {
+                                    prefix = `${toRomanNumeral(counter)}. `;
+                                } else if (depth === 0 || depth === 1) {
+                                    prefix = `${counter}. `;
+                                } else {
+                                    const letter = String.fromCharCode(96 + Math.min(counter, 26));
+                                    prefix = `${letter}) `;
+                                }
+                            } else {
+                                prefix = `- `;
+                            }
+                            child.insertBefore(doc.createTextNode(prefix), child.firstChild);
+                        }
+                        counter++;
+                    }
+                });
+            };
+
+            // Quét các danh sách cấp cao nhất
+            doc.querySelectorAll('ol, ul').forEach(listEl => {
+                if (!listEl.parentElement || !listEl.parentElement.closest('ol, ul')) {
+                    processListElement(listEl, 0);
+                }
+            });
+
+            // 2. Xử lý các bảng <table>: Bỏ qua bảng tiêu đề & chữ ký, chuyển bảng nội dung thành dòng ngăn cách bởi " | "
             doc.querySelectorAll('table').forEach(table => {
                 const tableText = table.textContent || '';
                 const isHeaderTable = /CỘNG\s+HÒA\s+XÃ\s+HỘI/i.test(tableText) && /Độc\s+lập/i.test(tableText);
                 const isFooterTable = /Nơi\s+nhận\s*:/i.test(tableText);
 
                 if (isHeaderTable || isFooterTable) {
-                    // Tách từng ô thành từng dòng riêng
                     table.querySelectorAll('td, th, p, div').forEach(cell => {
                         cell.appendChild(doc.createTextNode('\n'));
                     });
                 } else {
-                    // Đây là bảng dữ liệu trong Nội dung văn bản (VD: Bảng lộ trình 35 tuần) -> chuyển mỗi hàng <tr> thành 1 dòng ngăn cách bởi " | "
                     const rows = [];
                     table.querySelectorAll('tr').forEach(tr => {
                         const cells = [];
@@ -1535,6 +1672,120 @@ Nguyễn Văn Minh`
             });
 
             return doc.body ? doc.body.textContent : htmlString;
+        }
+
+        // =========================================================================
+        // THUẬT TOÁN TỰ ĐỘNG KHÔI PHỤC ĐÁNH SỐ MỤC (I, II, III / 1, 2 / a, b, c) & LÀM ĐẸP VĂN BẢN
+        // Giải quyết triệt để trường hợp file Word tải lên bị mất số thứ tự đề mục
+        // =========================================================================
+        function autoStructureBodyLines(rawLines) {
+            // Bước 1: Khôi phục bảng biểu nếu có bảng 35 tuần bị vỡ
+            let lines = autoReconstructBrokenScheduleLines(rawLines);
+
+            // Bước 2: Làm sạch các lỗi khoảng trắng trong dấu ngoặc như "( Bản giấy)" -> "(bản giấy)" hoặc "( Đối với...)"
+            lines = lines.map(l => {
+                return l
+                    .replace(/\(\s+/g, '(')
+                    .replace(/\s+\)/g, ')')
+                    .replace(/\s+([,;\.:])/g, '$1');
+            });
+
+            // Kiểm tra xem văn bản đã có các mục I., II. hay Điều 1. chưa
+            const hasRomanSections = lines.some(l => /^(I|II|III|IV|V|VI|VII|VIII)\.\s+/i.test(l));
+            const isDecisionDoc = lines.some(l => /^Điều\s+\d+[\.:]/i.test(l));
+
+            let romanCount = 0;
+            let arabicCount = 0;
+            let letterCount = 0;
+
+            // Các mẫu tiêu đề lớn cấp I, II, III thường gặp trong Kế hoạch ngành Giáo dục
+            const majorHeadingKeywords = /^(MỤC\s+ĐÍCH|YÊU\s+CẦU|NHIỆM\s+VỤ|CHỈ\s+TIÊU|ĐỐI\s+TƯỢNG|PHẠM\s+VI|NỘI\s+DUNG|THỜI\s+GIAN|ĐỊA\s+ĐIỂM|GIẢI\s+PHÁP|LỘ\s+TRÌNH|KINH\s+PHÍ|TỔ\s+CHỨC\s+THỰC\s+HIỆN|PHÂN\s+CÔNG|CHẾ\s+ĐỘ|TIẾN\s+ĐỘ|KẾT\s+QUẢ|ĐÁNH\s+GIÁ)/i;
+
+            // Các mẫu tiểu mục cấp 1., 2., 3. khi bị mất số trong Word
+            const subHeadingExactNames = /^(Mục\s+đích|Yêu\s+cầu|Đối\s+tượng,\s*phạm\s+vi|Đối\s+tượng|Phạm\s+vi|Nguyên\s+tắc.*|Nội\s+dung\s+kiểm\s+tra|Nội\s+dung\s+thực\s+hiện|Thời\s+gian\s+kiểm\s+tra.*|Thời\s+gian\s+thực\s+hiện.*|Hình\s+thức\s+kiểm\s+tra.*|Lãnh\s+đạo\s+nhà\s+trường|Ban\s+Giám\s+hiệu.*|Hiệu\s+trưởng.*|Các\s+tổ\s+chuyên\s+môn|Tổ\s+chuyên\s+môn|Tổ\s+trưởng\s+chuyên\s+môn|Giáo\s+viên\s+chủ\s+nhiệm|Giáo\s+viên\s+bộ\s+môn.*|Đoàn\s+Thanh\s+niên)$/i;
+
+            const result = [];
+
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+
+                // Bỏ qua dòng bảng biểu
+                if (line.includes('|') || isDecisionDoc) {
+                    result.push(line);
+                    continue;
+                }
+
+                // 1. Nếu dòng ĐÃ CÓ số La Mã I., II., III.
+                const romanMatch = line.match(/^(I|II|III|IV|V|VI|VII|VIII|IX|X)\.\s*(.+)$/i);
+                if (romanMatch) {
+                    romanCount++;
+                    arabicCount = 0;
+                    letterCount = 0;
+                    result.push(`${romanMatch[1].toUpperCase()}. ${romanMatch[2].trim().toUpperCase()}`);
+                    continue;
+                }
+
+                // 2. Nếu dòng viết IN HOA hoàn toàn (VD: "MỤC ĐÍCH, YÊU CẦU", "NHIỆM VỤ TRỌNG TÂM", "NỘI DUNG CỤ THỂ, THỜI GIAN KIỂM TRA", "TỔ CHỨC THỰC HIỆN") mà bị mất số La Mã
+                const isAllUpperLine = (line === line.toUpperCase()) && line.length >= 5 && line.length <= 85 && /[A-ZĐƯƠĂÂÊÔ]/.test(line) && !line.endsWith('.') && !line.endsWith(';');
+                if (!hasRomanSections && (isAllUpperLine || majorHeadingKeywords.test(line))) {
+                    romanCount++;
+                    arabicCount = 0;
+                    letterCount = 0;
+                    result.push(`${toRomanNumeral(romanCount)}. ${line}`);
+                    continue;
+                }
+
+                // 3. Nếu dòng ĐÃ CÓ số Ả Rập 1., 2., 3.
+                const arabicMatch = line.match(/^(\d+)\.\s+(.+)$/);
+                if (arabicMatch) {
+                    arabicCount = parseInt(arabicMatch[1], 10);
+                    letterCount = 0;
+                    result.push(`${arabicCount}. ${arabicMatch[2].trim()}`);
+                    continue;
+                }
+
+                // 4. Nếu dòng là tiểu mục ngắn bị mất số 1., 2. (VD: "Mục đích", "Yêu cầu", "Nội dung kiểm tra", "Thời gian kiểm tra: Chia làm 03 đợt.", "Lãnh đạo nhà trường", "Các tổ chuyên môn")
+                if (romanCount > 0 && subHeadingExactNames.test(line)) {
+                    arabicCount++;
+                    letterCount = 0;
+                    const cleanSub = line.replace(/\.$/, ''); // Tiểu mục không để dấu chấm cuối dòng
+                    result.push(`${arabicCount}. ${cleanSub}`);
+                    continue;
+                }
+
+                // 5. Kiểm tra trường hợp trước dòng "b) Đối với giáo viên:" là dòng "Đối với Tổ trưởng chuyên môn:" bị mất chữ "a)"
+                const nextLine = i + 1 < lines.length ? lines[i + 1] : '';
+                if (!/^[a-zđ]\)\s+/i.test(line) && /^b\)\s+/i.test(nextLine) && /^Đối\s+với\s+/i.test(line)) {
+                    letterCount = 1;
+                    result.push(`a) ${line}`);
+                    continue;
+                }
+
+                // 6. Nếu dòng bắt đầu bằng a), b), c) -> Tự động sửa lỗi trùng chữ (VD: "a) Đợt 1", "b) Đợt 2", rồi lại "b) Đợt 3" -> sửa thành "c) Đợt 3")
+                const letterMatch = line.match(/^([a-zđ])\)\s+(.+)$/i);
+                if (letterMatch) {
+                    letterCount++;
+                    const correctLetter = String.fromCharCode(96 + Math.min(letterCount, 26));
+                    result.push(`${correctLetter}) ${letterMatch[2].trim()}`);
+                    continue;
+                }
+
+                result.push(line);
+            }
+
+            return result;
+        }
+
+        function autoStructureAndFormatBody(showNotice = false) {
+            const bodyEl = document.getElementById('docBody');
+            if (!bodyEl) return;
+            const rawLines = bodyEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const structuredLines = autoStructureBodyLines(rawLines);
+            bodyEl.value = structuredLines.join('\n');
+            syncDocument();
+            if (showNotice) {
+                showToast('Đã tự động đánh số đề mục (I, II, 1, 2, a, b, c) và chuẩn hóa in đậm theo NĐ 30/2020!');
+            }
         }
 
         // Bộ khôi phục Bảng biểu thông minh (Nếu bảng 5 cột Tuần | Thời gian | Nội dung | Phụ trách | Phối hợp bị vỡ thành từng dòng đơn)
@@ -1932,15 +2183,7 @@ Nguyễn Văn Minh`
                 cleanSigLines.forEach(l => {
                     if (signRoleRegex.test(l) || l === l.toUpperCase()) {
                         roleLines.push(l);
-                    } else {
-                        nameLines.push(l);
-                    }
-                });
-
-                if (roleLines.length >= 2) {
-                    parsed.signAuthPrefix = roleLines[0];
-                    parsed.signPosition = roleLines.slice(1).join(' ');
-                } else if (roleLines.length === 1) {
+                    if ( roleLines.length === 1) {
                     parsed.signPosition = roleLines[0];
                 }
 
@@ -1987,17 +2230,17 @@ Nguyễn Văn Minh`
             }
 
             parsed.docBases = basesLines.join('\n');
-            // Tự động khôi phục bảng biểu nếu file tải lên có bảng bị băm thành từng dòng rời rạc
-            const reconstructedBodyLines = autoReconstructBrokenScheduleLines(bodyLines);
-            parsed.docBody = reconstructedBodyLines.join('\n');
+            // Tự động khôi phục đánh số đề mục (I, II, 1, 2, a, b, c) & bảng biểu nếu file tải lên bị mất Auto-Numbering của Word
+            const structuredBodyLines = autoStructureBodyLines(bodyLines);
+            parsed.docBody = structuredBodyLines.join('\n');
             recognizedStatus.canCu = basesLines.length > 0;
-            recognizedStatus.noiDung = reconstructedBodyLines.length > 0;
+            recognizedStatus.noiDung = structuredBodyLines.length > 0;
 
             // Đảm bảo các trường không bị rỗng hoàn toàn nếu file tải lên thiếu một số mục phụ
             if (!parsed.governingBody) parsed.governingBody = 'SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG';
             if (!parsed.issuingBody) parsed.issuingBody = 'TRƯỜNG THCS&THPT HÒA THUẬN';
             if (!parsed.docSymbol) parsed.docSymbol = parsed.docCategory === 'quyetdinh' ? 'Số: 01/QĐ-THCS&THPT' : 'Số: 01/KH-THCS&THPT';
-            if (!parsed.docSubject) parsed.docSubject = 'Về việc thực hiện nhiệm vụ năm học 2025 - 2026';
+            if (!parsed.docSubject) parsed.docSubject = 'Về việc thực hiện nhiệm vụ năm học 2026 - 2027';
             if (parsed.docCategory === 'quyetdinh' && !parsed.decisionAuthority) {
                 parsed.decisionAuthority = `HIỆU TRƯỞNG ${parsed.issuingBody.toUpperCase()}`;
             }
@@ -2036,13 +2279,21 @@ Nguyễn Văn Minh`
             });
 
             handleCategoryChange(false);
+
+            // TỰ ĐỘNG ĐỐI CHIẾU & CHUẨN HÓA NGAY LẬP TỨC VỚI NGHỊ ĐỊNH 30/2020/NĐ-CP KHI TẢI FILE THẬT LÊN
+            // (Chỉ giữ nguyên lỗi đối với 2 nút "File KH thô (Có lỗi)" để phục vụ trình diễn bắt lỗi)
+            const isIntentionalBugDemo = sourceLabel.includes('Ke_hoach_STEM_KHKT_Ban_Tho');
+            if (!isIntentionalBugDemo) {
+                autoFixAllErrors(true);
+            }
+
             syncDocument();
 
             // Hiển thị báo cáo bóc tách & hiệu ứng nháy sáng các ô vừa nhận diện
             renderRecognitionReport(sourceLabel, recognizedStatus);
             flashPopulatedFields();
 
-            showToast(`Đã nhận diện & bóc tách nội dung từ "${sourceLabel}" vào các mục soạn thảo!`);
+            showToast(`Đã nhận diện, khôi phục đề mục I, II, 1, 2 và chuẩn hóa NĐ 30/2020 cho "${sourceLabel}"!`);
         }
 
         // Hiển thị báo cáo chi tiết các mục đã nhận diện được từ file tải lên
@@ -2207,22 +2458,31 @@ Nguyễn Văn Minh`
             const signerName = document.getElementById('signerName').value.trim();
             const approvalTitle = document.getElementById('approvalTitle').value.trim();
 
-            // 1. Cập nhật Tiêu đề Cơ quan & Quốc hiệu (Đảm bảo mỗi nội dung nằm trên 1 dòng đơn duy nhất cả trên Web và Word)
+            // 1. Cập nhật Tiêu đề Cơ quan & Quốc hiệu:
+            // TUÂN THỦ NGHIÊM NGẶT NĐ 30/2020: Giữ nguyên cỡ chữ 12pt cho Cơ quan chủ quản & Cơ quan ban hành,
+            // sử dụng Spacing: Condensed (letter-spacing âm) giống hệt trong Microsoft Word để nằm gọn trên 1 dòng.
             const govEl = document.getElementById('preview-governing');
             const issEl = document.getElementById('preview-issuing');
             const natEl = document.getElementById('preview-national');
             const mottoEl = document.getElementById('preview-motto');
 
+            const condensedSlider = document.getElementById('condensedSpacingPt');
+            const condensedTenths = condensedSlider ? parseInt(condensedSlider.value, 10) : 4;
+            const condensedPtVal = (condensedTenths / 10).toFixed(1);
+            const lblCondensed = document.getElementById('label-condensed-pt');
+            if (lblCondensed) {
+                lblCondensed.textContent = condensedTenths === 0 ? 'Normal (0pt)' : `-${condensedPtVal}pt`;
+            }
+
             govEl.textContent = governingBody;
             govEl.style.textTransform = 'none';
+            govEl.style.fontSize = '12pt';
+            govEl.style.letterSpacing = `-${condensedPtVal}pt`;
+
             issEl.textContent = issuingBody;
             issEl.style.textTransform = 'none';
-
-            // Tự động tính cỡ chữ tối ưu (11pt khi dài >= 28 ký tự như "SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG") để tuyệt đối nằm trên 1 dòng
-            const maxAgencyLen = Math.max(governingBody.length, issuingBody.length);
-            const agencyFontSize = maxAgencyLen >= 30 ? '11pt' : (maxAgencyLen >= 26 ? '11.5pt' : '12pt');
-            govEl.style.fontSize = agencyFontSize;
-            issEl.parentElement.style.fontSize = agencyFontSize;
+            issEl.parentElement.style.fontSize = '12pt';
+            issEl.parentElement.style.letterSpacing = `-${condensedPtVal}pt`;
 
             document.getElementById('preview-symbol').textContent = docSymbol;
             natEl.textContent = nationalName;
@@ -2317,7 +2577,8 @@ Nguyễn Văn Minh`
             runFormatValidator();
         }
 
-        // Hàm dựng HTML cho phần Nội dung chính: Tự động biến các dòng có dấu "|" thành Bảng biểu <table> chuẩn hành chính
+        // Hàm dựng HTML cho phần Nội dung chính:
+        // Tự động in đậm các đề mục lớn (I., II., III.), in đậm tiểu mục (1., 2., 3.), in đậm tiêu đề điểm a), b), c) và giữ nguyên Bảng biểu
         function renderBodyWithTablesHTML(docBodyText) {
             const rawLines = docBodyText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
             const lines = autoReconstructBrokenScheduleLines(rawLines);
@@ -2328,7 +2589,7 @@ Nguyễn Văn Minh`
             while (i < lines.length) {
                 const line = lines[i];
 
-                // Kiểm tra nếu dòng chứa dấu "|" ngăn cách cột của bảng
+                // 1. Kiểm tra nếu dòng chứa dấu "|" ngăn cách cột của bảng
                 if (line.includes('|')) {
                     const tableRows = [];
                     while (i < lines.length && lines[i].includes('|')) {
@@ -2343,7 +2604,6 @@ Nguyễn Văn Minh`
                             const isHeader = rIdx === 0;
                             html += `<tr>`;
                             cols.forEach((colText, cIdx) => {
-                                // Căn chỉnh độ rộng hợp lý cho bảng 5 cột (Tuần | Thời gian | Nội dung | Phụ trách | Phối hợp)
                                 let colWidthStyle = '';
                                 let alignStyle = isHeader ? 'center' : (cIdx <= 1 ? 'center' : 'left');
                                 if (cols.length === 5) {
@@ -2362,20 +2622,56 @@ Nguyễn Văn Minh`
                     continue;
                 }
 
-                // Đoạn văn bản thông thường
+                // 2. Mục lớn đánh số La Mã (I., II., III., IV...) -> Lùi đầu dòng 10mm (hoặc sát lề), IN HOA, ĐẬM
                 if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X)\.\s+/i.test(line)) {
-                    html += `<p style="text-indent: 0mm; margin-top: 4pt; margin-bottom: 6pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
-                } else if (/^\d+\.\s+[^\d]/i.test(line) && line.length < 95 && !line.endsWith('.') && !line.endsWith(';')) {
-                    // Các tiểu mục ngắn như "1. Mục đích", "2. Yêu cầu" -> in đậm nhẹ
-                    html += `<p style="text-indent: 10mm; margin-top: 2pt; margin-bottom: 4pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
-                } else if (/^Điều\s+\d+[\.:]/i.test(line)) {
+                    html += `<p style="text-indent: 10mm; margin-top: 6pt; margin-bottom: 4pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
+                }
+                // 3. Dòng tiêu đề viết IN HOA hoàn toàn (phòng khi người dùng gõ tay không đánh số La Mã) -> IN ĐẬM
+                else if ((line === line.toUpperCase()) && line.length >= 5 && line.length <= 85 && /[A-ZĐƯƠĂÂÊÔ]/.test(line)) {
+                    html += `<p style="text-indent: 10mm; margin-top: 6pt; margin-bottom: 4pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
+                }
+                // 4. Tiểu mục đánh số 1., 2., 3.
+                else if (/^\d+\.\s+/i.test(line)) {
+                    // Nếu là dòng tiêu đề tiểu mục ngắn (VD: "1. Mục đích", "2. Thời gian kiểm tra: Chia làm 03 đợt") -> In đậm cả dòng
+                    if (line.length <= 95 && (!line.endsWith('.') || /Chia\s+làm\s+\d+\s+đợt/i.test(line))) {
+                        html += `<p style="text-indent: 10mm; margin-top: 3pt; margin-bottom: 4pt; font-weight: bold; text-align: justify;">${escapeHtml(line)}</p>`;
+                    }
+                    // Nếu là tiểu mục có dấu hai chấm ":" ở đầu câu (VD: "1. Hiệu trưởng, Ban Giám hiệu: Ban hành...") -> In đậm phần trước dấu ":"
+                    else if (line.indexOf(':') > 2 && line.indexOf(':') < 65) {
+                        const colonIdx = line.indexOf(':');
+                        const headPart = line.substring(0, colonIdx + 1);
+                        const restPart = line.substring(colonIdx + 1);
+                        html += `<p style="text-indent: 10mm; margin-top: 2pt; margin-bottom: 4pt; text-align: justify;"><b>${escapeHtml(headPart)}</b>${escapeHtml(restPart)}</p>`;
+                    }
+                    // Nếu là đoạn văn liệt kê dài đánh số 1., 2., 3. -> In đậm con số "1.", "2."
+                    else {
+                        const m = line.match(/^(\d+\.)\s*(.*)$/);
+                        html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 4pt; text-align: justify;"><b>${escapeHtml(m[1])}</b> ${escapeHtml(m[2])}</p>`;
+                    }
+                }
+                // 5. Điểm a), b), c) -> In đậm phần "a) Đợt 1:..." hoặc "a) Đối với Tổ trưởng chuyên môn:"
+                else if (/^[a-zđ]\)\s+/i.test(line)) {
+                    if (line.indexOf(':') > 2 && line.indexOf(':') < 55) {
+                        const colonIdx = line.indexOf(':');
+                        const headPart = line.substring(0, colonIdx + 1);
+                        const restPart = line.substring(colonIdx + 1);
+                        html += `<p style="text-indent: 10mm; margin-top: 2pt; margin-bottom: 4pt; text-align: justify;"><b>${escapeHtml(headPart)}</b>${escapeHtml(restPart)}</p>`;
+                    } else {
+                        const m = line.match(/^([a-zđ]\))\s*(.*)$/i);
+                        html += `<p style="text-indent: 10mm; margin-top: 2pt; margin-bottom: 4pt; text-align: justify;"><b>${escapeHtml(m[1])}</b> ${escapeHtml(m[2])}</p>`;
+                    }
+                }
+                // 6. Điều 1., Điều 2. (Đối với Quyết định)
+                else if (/^Điều\s+\d+[\.:]/i.test(line)) {
                     const match = line.match(/^(Điều\s+\d+[\.:])\s*(.*)/i);
                     if (match) {
                         html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><b>${escapeHtml(match[1])}</b> ${escapeHtml(match[2])}</p>`;
                     } else {
                         html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;">${escapeHtml(line)}</p>`;
                     }
-                } else {
+                }
+                // 7. Đoạn văn bản thông thường
+                else {
                     html += `<p style="text-indent: 10mm; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;">${escapeHtml(line)}</p>`;
                 }
 
@@ -2472,14 +2768,31 @@ Nguyễn Văn Minh`
                 fixFn: 'fixCoQuan'
             });
 
-            // 3. Kiểm tra Số và Ký hiệu văn bản
+            // 3. Kiểm tra Số và Ký hiệu văn bản (Đồng thời đối chiếu chữ viết tắt KH / QĐ / TTr / TB với Loại văn bản)
             const hasSoPrefix = /^Số:\s*\d+\/[A-ZĐƯƠĂÂÊÔ&-]+/u.test(docSymbol);
+            const expectedAbbrMap = {
+                kehoach: 'KH',
+                quyetdinh: 'QĐ',
+                totrinh: 'TTR',
+                thongbao: 'TB'
+            };
+            const expectedAbbr = expectedAbbrMap[cat];
+            const symbolUpper = docSymbol.toUpperCase();
+            const isAbbrMatched = !expectedAbbr || symbolUpper.includes(`/${expectedAbbr}-`) || symbolUpper.includes(`/${expectedAbbr}`);
+
+            let symbolErrMsg = '';
+            if (!hasSoPrefix) {
+                symbolErrMsg = `Số và ký hiệu "${docSymbol}" chưa đúng quy tắc (thiếu chữ "Số:" hoặc phần ký hiệu viết tắt chưa IN HOA).`;
+            } else if (!isAbbrMatched) {
+                symbolErrMsg = `Loại văn bản là "${docTypeTitle}" nhưng ký hiệu đang ghi "${docSymbol}" (chưa khớp chữ viết tắt "/${expectedAbbr}-").`;
+            }
+
             checks.push({
                 id: 'so_ky_hieu',
                 title: '3. Số và ký hiệu của văn bản (Mục 3 Phụ lục I)',
-                passed: hasSoPrefix,
-                rule: 'Bắt đầu bằng từ "Số:", tiếp theo là số thứ tự, dấu gạch chéo "/" và chữ viết tắt IN HOA tên loại văn bản + cơ quan ban hành (VD: Số: 15/KH-THCS&THPT).',
-                errorMsg: `Số và ký hiệu "${docSymbol}" chưa đúng quy tắc (thiếu chữ "Số:" hoặc phần ký hiệu viết tắt chưa IN HOA).`,
+                passed: hasSoPrefix && isAbbrMatched,
+                rule: 'Bắt đầu bằng từ "Số:", tiếp theo là số thứ tự, dấu "/" và chữ viết tắt IN HOA đúng tên loại văn bản (VD: Kế hoạch phải là /KH-, Quyết định là /QĐ-).',
+                errorMsg: symbolErrMsg,
                 fixFn: 'fixSoKyHieu'
             });
 
@@ -2690,20 +3003,36 @@ Nguyễn Văn Minh`
         }
 
         function fixSoKyHieu() {
+            const cat = document.getElementById('docCategory').value;
+            const abbrMap = {
+                kehoach: 'KH',
+                quyetdinh: 'QĐ',
+                totrinh: 'TTr',
+                thongbao: 'TB',
+                congvan: 'THCS&THPT'
+            };
+            const targetAbbr = abbrMap[cat] || 'KH';
+
             let val = document.getElementById('docSymbol').value.trim();
             if (!val) {
-                val = 'Số: 15/KH-THCS&THPT';
+                val = `Số: 15/${targetAbbr}-THCS&THPT`;
             } else {
-                // Bổ sung chữ "Số: " nếu thiếu
                 val = val.replace(/^số\s*:?\s*/i, '');
                 const parts = val.split('/');
                 const numPart = parts[0] && /\d+/.test(parts[0]) ? parts[0].trim() : '01';
-                const symPart = parts[1] ? parts[1].trim().toUpperCase() : 'KH-THCS&THPT';
+                let symPart = parts[1] ? parts[1].trim().toUpperCase() : `${targetAbbr}-THCS&THPT`;
+
+                // Nếu văn bản là Kế hoạch mà ký hiệu cũ ghi QĐ-THCS&THPT thì tự động đồng bộ thành KH-THCS&THPT
+                if (cat !== 'congvan' && symPart.includes('-')) {
+                    const subParts = symPart.split('-');
+                    subParts[0] = targetAbbr.toUpperCase();
+                    symPart = subParts.join('-');
+                }
                 val = `Số: ${numPart}/${symPart}`;
             }
             document.getElementById('docSymbol').value = val;
             syncDocument();
-            showToast('Đã chuẩn hóa Số và Ký hiệu văn bản!');
+            showToast('Đã chuẩn hóa Số và đồng bộ Ký hiệu khớp với Loại văn bản!');
         }
 
         function fixNgayThang() {
@@ -2809,8 +3138,14 @@ Nguyễn Văn Minh`
         }
 
         function fixChuKy() {
+            const prefixEl = document.getElementById('signAuthPrefix');
             const posEl = document.getElementById('signPosition');
             const nameEl = document.getElementById('signerName');
+
+            if (prefixEl && prefixEl.value.trim()) {
+                // Chuẩn hóa "KT.HIỆU TRƯỞNG" -> "KT. HIỆU TRƯỞNG"
+                prefixEl.value = prefixEl.value.trim().toUpperCase().replace(/^(KT|TM|TL|TUQ)\.\s*/, '$1. ');
+            }
             if (!posEl.value.trim()) posEl.value = 'HIỆU TRƯỞNG';
             posEl.value = posEl.value.trim().toUpperCase();
             if (!nameEl.value.trim()) nameEl.value = 'Trần Quốc Tuấn';
@@ -2819,7 +3154,7 @@ Nguyễn Văn Minh`
         }
 
         // Sửa tất cả lỗi chỉ với 1 chạm
-        function autoFixAllErrors() {
+        function autoFixAllErrors(silent = false) {
             fixQuocHieu();
             fixCoQuan();
             fixSoKyHieu();
@@ -2828,7 +3163,10 @@ Nguyễn Văn Minh`
             fixBasesPunctuation();
             fixNoiNhanVaKetThuc();
             fixChuKy();
-            showToast('Đã tự động khắc phục toàn bộ lỗi thể thức đạt 100/100 điểm!');
+            autoStructureAndFormatBody(false);
+            if (!silent) {
+                showToast('Đã tự động khắc phục toàn bộ lỗi thể thức đạt 100/100 điểm!');
+            }
         }
 
         // =========================================================================
@@ -2902,19 +3240,19 @@ Nguyễn Văn Minh`
             const docRecipients = document.getElementById('docRecipients').value.trim();
             const signAuthPrefix = document.getElementById('signAuthPrefix').value.trim();
             const signPosition = document.getElementById('signPosition').value.trim();
-            const signerName = document.getElementById('signerName').value.trim();
-            const approvalTitle = document.getElementById('approvalTitle').value.trim();
-
-            // Lấy thông số độ dài Shape (pt)
+            // Lấy thông số độ dài Shape (pt) và Spacing: Condensed (pt)
             const issPtInput = document.getElementById('issuingShapePt');
             const mottoPtInput = document.getElementById('mottoShapePt');
+            const condensedInput = document.getElementById('condensedSpacingPt');
+
             const issWidthPt = issPtInput ? parseInt(issPtInput.value, 10) : 62;
             const mottoWidthPt = mottoPtInput ? parseInt(mottoPtInput.value, 10) : 136;
+            const condensedTenths = condensedInput ? parseInt(condensedInput.value, 10) : 4;
+            const wordCondensedSpacing = `-${(condensedTenths / 10).toFixed(1)}pt`;
 
-            // Tính toán cỡ chữ cho cột trái trong Word để chuỗi "SỞ GIÁO DỤC VÀ ĐÀO TẠO AN GIANG" luôn nằm gọn trên 1 dòng
-            const maxLeftLen = Math.max(governingBody.length, issuingBody.length);
-            const wordLeftFontSize = maxLeftLen >= 30 ? '11.0pt' : (maxLeftLen >= 26 ? '11.5pt' : '12.0pt');
-            const wordLeftLetterSpacing = maxLeftLen >= 30 ? '-0.2pt' : '0pt';
+            // TUÂN THỦ NĐ 30/2020: Giữ chuẩn cỡ chữ 12.0pt cho Cơ quan chủ quản & Cơ quan ban hành,
+            // kết hợp thuộc tính Spacing: Condensed (letter-spacing âm) trong Word để ép gọn trên 1 dòng.
+            const wordLeftFontSize = '12.0pt';
 
             // 1. Dựng HTML phần Căn cứ pháp lý cho Word
             const baseLines = docBases.split('\n').map(l => l.trim()).filter(l => l.length > 0);
@@ -3031,10 +3369,10 @@ Nguyễn Văn Minh`
         <!-- BẢNG TIÊU ĐỀ ĐẦU VĂN BẢN (Cố định 165mm = Cột trái 78mm + Cột phải 87mm, ép chuẩn 1 dòng đơn bằng nowrap) -->
         <table border="0" cellpadding="0" cellspacing="0" width="623" style="width: 165.0mm; border-collapse: collapse; border: none; table-layout: fixed; margin-bottom: 12pt;">
             <tr>
-                <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (1 dòng đơn tuyệt đối + VML Shape Line) -->
+                <!-- Cột trái: Cơ quan chủ quản & Cơ quan ban hành (Chuẩn 12pt + Spacing: Condensed + VML Shape Line) -->
                 <td width="295" nowrap="nowrap" valign="top" style="width: 78.0mm; padding: 0pt 2pt 0pt 0pt; vertical-align: top; text-align: center; white-space: nowrap; mso-wrap-style: none;">
-                    <p align="center" style="margin: 0pt; font-size: ${wordLeftFontSize}; font-weight: normal; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordLeftLetterSpacing};">${escapeHtml(governingBody)}</p>
-                    <p align="center" style="margin: 1.5pt 0pt 0pt 0pt; font-size: ${wordLeftFontSize}; font-weight: bold; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordLeftLetterSpacing};">${escapeHtml(issuingBody)}</p>
+                    <p align="center" style="margin: 0pt; font-size: ${wordLeftFontSize}; font-weight: normal; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordCondensedSpacing};">${escapeHtml(governingBody)}</p>
+                    <p align="center" style="margin: 1.5pt 0pt 0pt 0pt; font-size: ${wordLeftFontSize}; font-weight: bold; line-height: 1.25; text-align: center; white-space: nowrap; letter-spacing: ${wordCondensedSpacing};">${escapeHtml(issuingBody)}</p>
                     ${buildWordVmlShapeLine(issWidthPt, 'shape_line_issuing')}
                     <p align="center" style="margin: 4pt 0pt 0pt 0pt; font-size: 13.0pt; font-weight: normal; text-align: center; white-space: nowrap;">${escapeHtml(docSymbol)}</p>
                 </td>
